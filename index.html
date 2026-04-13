@@ -96,8 +96,7 @@ function genera() {
     const materia = document.getElementById("materia").value;
 
     let domande = [];
-
-    // 🔴 Controlli
+    
     if (!tipo) {
         mostra("Seleziona un tipo!");
         return;
@@ -112,8 +111,6 @@ function genera() {
         mostra("Seleziona la materia!");
         return;
     }
-
-    // 👤 PERSONA
     if (tipo === "persona") {
         domande = [
             `Chi è ${arg}?`,
@@ -122,8 +119,6 @@ function genera() {
             `Perché ${arg} è considerato importante?`
         ];
     }
-
-    // 🌍 PAESE
     else if (tipo === "paese") {
 
         if (materia === "storia") {
@@ -150,8 +145,6 @@ function genera() {
             ];
         }
     }
-
-    // 🧱 OGGETTO
     else if (tipo === "oggetto") {
         domande = [
             `Cos'è ${arg} e a cosa serve?`,
@@ -160,8 +153,6 @@ function genera() {
             `Quali problemi risolve ${arg}?`
         ];
     }
-
-    // 📜 PERIODO
     else if (tipo === "periodo") {
         domande = [
             `Cos'è il periodo del ${arg}?`,
@@ -171,8 +162,6 @@ function genera() {
             `Perché il ${arg} è importante nella storia?`
         ];
     }
-
-    // ⚔️ EVENTO
     else if (tipo === "evento") {
         domande = [
             `Quando è avvenuto ${arg}?`,
