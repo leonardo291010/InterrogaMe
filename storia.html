@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Interrogazione Storia - Guerre Mondiali</title>
+</head>
+<body>
 
+<h1>SEI PRONTO???</h1>
+
+<label>Scegli guerra:</label>
+<select id="guerra">
+  <option value="ww1">Prima Guerra Mondiale</option>
+  <option value="ww2">Seconda Guerra Mondiale</option>
+</select>
+
+<br><br>
+
+<label>Scegli difficoltà:</label>
+<select id="difficolta">
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<br><br>
+
+<button onclick="iniziaQuiz()">Inizia interrogazione</button>
+
+<hr>
+
+<div id="quiz"></div>
+
+<script>
+const domande = {
+  ww1: {
+    facile: [
+      "In che anni è durata la Prima Guerra Mondiale?",
+      "Qual è l’evento che fa scoppiare la guerra nel 1914?",
+      "Quali sono i due schieramenti principali?",
+      "Come si chiamava il principe assassinato a Sarajevo?",
+      "Quale tipo di guerra si combatte soprattutto nelle trincee?"
+    ],
+    normale: [
+      "Perché l’assassinio di Sarajevo ha provocato una guerra mondiale?",
+      "Cos’era la guerra di trincea e perché era così dura?",
+      "Che ruolo aveva l’Italia all’inizio della guerra e poi cosa cambia?",
+      "Cos’era il Patto di Londra?",
+      "Chi era il presidente degli USA che entra in guerra nel 1917?"
+    ],
+    difficile: [
+      "Spiega perché la guerra diventa mondiale anche se nasce in Europa.",
+      "Analizza il ruolo dell’impero austro-ungarico nello scoppio del conflitto.",
+      "Quali furono gli errori strategici della Germania secondo il piano Schlieffen?",
+      "Perché l’entrata in guerra degli USA è decisiva?",
+      "Come cambia l’assetto politico europeo dopo il 1918?"
+    ]
+  },
+
+  ww2: {
+    facile: [
+      "In che anni è durata la Seconda Guerra Mondiale?",
+      "Chi era il leader della Germania nazista?",
+      "Quali sono i due schieramenti principali del conflitto?",
+      "Qual è il nome dell’evento del 6 giugno 1944 in Francia?",
+      "Quale paese ha lanciato la bomba atomica su Hiroshima?"
+    ],
+    normale: [
+      "Perché è iniziata la Seconda Guerra Mondiale?",
+      "Cos’è il Patto Molotov-Ribbentrop?",
+      "Qual era il ruolo dell’Italia guidata da Mussolini?",
+      "Cosa fu la battaglia di Stalingrado e perché è importante?",
+      "Cos’è lo sbarco in Normandia?"
+    ],
+    difficile: [
+      "Perché la battaglia di Stalingrado è uno dei punti di svolta?",
+      "Spiega il concetto di guerra totale.",
+      "Quali errori strategici fece Hitler durante la guerra?",
+      "Come funzionava il sistema dei campi di concentramento nazisti?",
+      "Perché il Giappone attaccò Pearl Harbor?"
+    ]
+  }
+};
+
+function iniziaQuiz() {
+  const guerra = document.getElementById("guerra").value;
+  const diff = document.getElementById("difficolta").value;
+
+  const lista = domande[guerra][diff];
+
+  let html = "<h2>Domande:</h2><ol>";
+
+  for (let q of lista) {
+    html += "<li>" + q + "</li>";
+  }
+
+  html += "</ol>";
+
+  document.getElementById("quiz").innerHTML = html;
+}
+</script>
+
+</body>
+</html>
