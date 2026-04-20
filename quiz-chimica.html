@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Quiz Sistema Solare - InterrogaMe</title>
+  <title>Quiz Chimica - InterrogaMe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -33,9 +33,9 @@
 
 <body>
 
-<h1>SEI PRONTO??? 🚀</h1>
+<h1>SEI PRONTO??? ⚛️</h1>
 
-<p>Quiz sul Sistema Solare</p>
+<p>Quiz di Chimica</p>
 
 <select id="difficolta">
   <option value="">Scegli difficoltà</option>
@@ -55,31 +55,31 @@ function mostraDomande() {
 
   if (scelta === "facile") {
     box.innerHTML = `
-      <p>Qual è la stella al centro del Sistema Solare?</p>
-      <p>Qual è il pianeta su cui viviamo?</p>
-      <p>Qual è il pianeta più vicino al Sole?</p>
-      <p>Qual è il pianeta più grande del Sistema Solare?</p>
-      <p>Come si chiama il nostro satellite naturale?</p>
+      <p>Che cosa studia la chimica?</p>
+      <p>Qual è la particella più piccola che mantiene le proprietà di un elemento?</p>
+      <p>Come si chiama la sostanza fatta da un solo tipo di atomi?</p>
+      <p>L’acqua è un elemento o un composto?</p>
+      <p>Qual è il simbolo chimico dell’ossigeno?</p>
     `;
   }
 
   if (scelta === "normale") {
     box.innerHTML = `
-      <p>Qual è il pianeta noto per i suoi anelli?</p>
-      <p>Qual è il pianeta più caldo del Sistema Solare?</p>
-      <p>Qual è il pianeta più lontano dal Sole (tra quelli ufficiali)?</p>
-      <p>Come si chiama la fascia di asteroidi tra Marte e Giove?</p>
-      <p>Qual è il pianeta chiamato “gigante rosso”?</p>
+      <p>Da quali particelle è formato un atomo?</p>
+      <p>Dove si trovano protoni e neutroni nell’atomo?</p>
+      <p>Che cos’è una molecola?</p>
+      <p>Qual è la differenza tra elemento e composto?</p>
+      <p>Che cos’è una reazione chimica?</p>
     `;
   }
 
   if (scelta === "difficile") {
     box.innerHTML = `
-      <p>Qual è il pianeta con il giorno più lungo (rotazione più lenta)?</p>
-      <p>Quale pianeta ha il maggior numero di satelliti naturali conosciuti?</p>
-      <p>Come si chiama la nube che si pensa circondi il Sistema Solare piena di comete?</p>
-      <p>Qual è la velocità approssimativa della luce (in km/s)?</p>
-      <p>Qual è il nome della forza che tiene i pianeti in orbita attorno al Sole?</p>
+      <p>Che cos’è il numero atomico e cosa indica?</p>
+      <p>Che differenza c’è tra massa atomica e numero di massa?</p>
+      <p>Che cos’è un legame chimico?</p>
+      <p>Qual è la differenza tra trasformazione fisica e chimica?</p>
+      <p>Che cosa afferma la legge di conservazione della massa?</p>
     `;
   }
 }
