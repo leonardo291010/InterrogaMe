@@ -4,37 +4,89 @@
   <meta charset="UTF-8">
   <title>Quiz Sistema Solare - InterrogaMe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f5f5f5;
+    padding: 15px;
+  }
+
+  button, select {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    margin: 10px auto;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+  }
+
+  button {
+    background: #4CAF50;
+    color: white;
+  }
+</style>
+
 </head>
 
-<body style="font-family: Arial; text-align:center; background:#f5f5f5; padding:15px;">
+<body>
 
 <h1>SEI PRONTO??? 🚀</h1>
 
-<p>Quiz sul Sistema Solare con domande facili, normali e difficili.</p>
+<p>Quiz sul Sistema Solare</p>
 
-<h2>🟢 Livello Facile</h2>
-<p>Qual è la stella al centro del Sistema Solare?</p>
-<p>Qual è il pianeta su cui viviamo?</p>
-<p>Qual è il pianeta più vicino al Sole?</p>
-<p>Qual è il pianeta più grande del Sistema Solare?</p>
-<p>Come si chiama il nostro satellite naturale?</p>
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
 
-<h2>🟡 Livello Normale</h2>
-<p>Qual è il pianeta noto per i suoi anelli?</p>
-<p>Qual è il pianeta più caldo del Sistema Solare?</p>
-<p>Qual è il pianeta più lontano dal Sole (tra quelli ufficiali)?</p>
-<p>Come si chiama la fascia di asteroidi tra Marte e Giove?</p>
-<p>Qual è il pianeta chiamato “gigante rosso”?</p>
+<button onclick="mostraDomande()">Inizia</button>
 
-<h2>🔴 Livello Difficile</h2>
-<p>Qual è il pianeta con il giorno più lungo (rotazione più lenta)?</p>
-<p>Quale pianeta ha il maggior numero di satelliti naturali conosciuti?</p>
-<p>Come si chiama la nube che si pensa circondi il Sistema Solare piena di comete?</p>
-<p>Qual è la velocità approssimativa della luce (in km/s)?</p>
-<p>Qual è il nome della forza che tiene i pianeti in orbita attorno al Sole?</p>
+<div id="domande"></div>
+
+<script>
+function mostraDomande() {
+  let scelta = document.getElementById("difficolta").value;
+  let box = document.getElementById("domande");
+
+  if (scelta === "facile") {
+    box.innerHTML = `
+      <p>Qual è la stella al centro del Sistema Solare?</p>
+      <p>Qual è il pianeta su cui viviamo?</p>
+      <p>Qual è il pianeta più vicino al Sole?</p>
+      <p>Qual è il pianeta più grande del Sistema Solare?</p>
+      <p>Come si chiama il nostro satellite naturale?</p>
+    `;
+  }
+
+  if (scelta === "normale") {
+    box.innerHTML = `
+      <p>Qual è il pianeta noto per i suoi anelli?</p>
+      <p>Qual è il pianeta più caldo del Sistema Solare?</p>
+      <p>Qual è il pianeta più lontano dal Sole (tra quelli ufficiali)?</p>
+      <p>Come si chiama la fascia di asteroidi tra Marte e Giove?</p>
+      <p>Qual è il pianeta chiamato “gigante rosso”?</p>
+    `;
+  }
+
+  if (scelta === "difficile") {
+    box.innerHTML = `
+      <p>Qual è il pianeta con il giorno più lungo (rotazione più lenta)?</p>
+      <p>Quale pianeta ha il maggior numero di satelliti naturali conosciuti?</p>
+      <p>Come si chiama la nube che si pensa circondi il Sistema Solare piena di comete?</p>
+      <p>Qual è la velocità approssimativa della luce (in km/s)?</p>
+      <p>Qual è il nome della forza che tiene i pianeti in orbita attorno al Sole?</p>
+    `;
+  }
+}
+</script>
 
 <br><br>
-<a href="index.html">⬅ Torna alla home</a>
+<button onclick="location.href='index.html'">⬅ Torna alla home</button>
 
 </body>
 </html>
