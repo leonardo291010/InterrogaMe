@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Educazione Civica - Ambiente</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="font-family: Arial; text-align:center; background:#f5f5f5; padding:15px;">
+
+<!-- MENU -->
+<button onclick="apriMenu()" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:3;
+  font-size:22px;
+  padding:8px 12px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+">☰</button>
+
+<div id="menu" style="
+  height:100%;
+  width:0;
+  position:fixed;
+  top:0;
+  left:0;
+  background:#333;
+  overflow-x:hidden;
+  transition:0.3s;
+  padding-top:60px;
+  z-index:2;
+">
+
+<a href="javascript:void(0)" onclick="chiudiMenu()" style="
+  position:absolute;
+  top:10px;
+  right:20px;
+  font-size:30px;
+  color:white;
+  text-decoration:none;
+">×</a>
+
+<a href="storia.html" style="color:white; display:block; padding:12px;">Storia</a>
+<a href="geografia-Italia.html" style="color:white; display:block; padding:12px;">Geografia</a>
+<a href="scienze-quiz-a-livelli.html" style="color:white; display:block; padding:12px;">Scienze</a>
+<a href="quiz-chimica.html" style="color:white; display:block; padding:12px;">Chimica</a>
+<a href="educazione-civica-ambiente.html" style="color:white; display:block; padding:12px;">Educazione Civica 🌍</a>
+
+</div>
+
+<div id="overlay" onclick="chiudiMenu()" style="
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  display:none;
+  z-index:1;
+"></div>
+
+<!-- CONTENUTO -->
+
+<h1>Quiz Educazione Civica 🌍</h1>
+
+<p>Ambiente, inquinamento ed effetto serra</p>
+
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<button onclick="mostraDomande()">Inizia</button>
+
+<div id="domande"></div>
+
+<script>
+function mostraDomande() {
+  let scelta = document.getElementById("difficolta").value;
+  let box = document.getElementById("domande");
+
+  if (scelta === "facile") {
+    box.innerHTML = `
+      <p>Che cos’è l’inquinamento?</p>
+      <p>Qual è un esempio di fonte di inquinamento dell’aria?</p>
+      <p>Che cos’è l’atmosfera?</p>
+      <p>È meglio buttare i rifiuti per terra o negli appositi contenitori?</p>
+      <p>Che cosa significa “riciclo”?</p>
+    `;
+  }
+
+  if (scelta === "normale") {
+    box.innerHTML = `
+      <p>Che cos’è l’effetto serra?</p>
+      <p>Quali gas sono responsabili dell’effetto serra? (almeno uno)</p>
+      <p>Che cos’è il buco dell’ozono?</p>
+      <p>Perché il buco dell’ozono è pericoloso?</p>
+      <p>Quali sono le principali conseguenze dell’inquinamento atmosferico?</p>
+    `;
+  }
+
+  if (scelta === "difficile") {
+    box.innerHTML = `
+      <p>Qual è la differenza tra effetto serra naturale e effetto serra intensificato dall’uomo?</p>
+      <p>Che ruolo ha l’anidride carbonica nel riscaldamento globale?</p>
+      <p>Come si formano i gas serra nell’atmosfera?</p>
+      <p>Perché i CFC sono stati vietati in molti paesi?</p>
+      <p>Qual è la differenza tra cambiamento climatico e riscaldamento globale?</p>
+    `;
+  }
+}
+
+function apriMenu() {
+  document.getElementById("menu").style.width = "250px";
+  document.getElementById("overlay").style.display = "block";
+}
+
+function chiudiMenu() {
+  document.getElementById("menu").style.width = "0";
+  document.getElementById("overlay").style.display = "none";
+}
+</script>
+
+<br><br>
+<button onclick="location.href='index.html'">⬅ Torna alla home</button>
+
+</body>
+</html>
