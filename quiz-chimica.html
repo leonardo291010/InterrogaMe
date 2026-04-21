@@ -32,7 +32,39 @@
 </head>
 
 <body>
+<!-- Bottone menu -->
+<button onclick="apriMenu()" style="position:fixed; top:10px; left:10px; z-index:2;">
+☰
+</button>
 
+<!-- Menu -->
+<div id="menu" style="
+  height:100%;
+  width:0;
+  position:fixed;
+  top:0;
+  left:0;
+  background:#333;
+  overflow-x:hidden;
+  transition:0.3s;
+  padding-top:60px;
+">
+
+<a href="javascript:void(0)" onclick="chiudiMenu()" style="
+  position:absolute;
+  top:10px;
+  right:20px;
+  font-size:30px;
+  color:white;
+">×</a>
+
+<a href="storia.html" style="color:white; display:block; padding:10px;">Storia</a>
+<a href="geografia-Italia.html" style="color:white; display:block; padding:10px;">Geografia</a>
+<a href="scienze-quiz-a-livelli.html" style="color:white; display:block; padding:10px;">Scienze</a>
+<a href="quiz-chimica.html" style="color:white; display:block; padding:10px;">Chimica</a>
+
+</div>
+  
 <h1>SEI PRONTO??? ⚛️</h1>
 
 <p>Quiz di Chimica</p>
@@ -84,8 +116,17 @@ function mostraDomande() {
 }
 </script>
 
-<br><br>
-<button onclick="location.href='index.html'">⬅ Torna alla home</button>
+<br>
+<br>
+  
+<script>
+function apriMenu() {
+  document.getElementById("menu").style.width = "250px";
+}
 
+function chiudiMenu() {
+  document.getElementById("menu").style.width = "0";
+}
+</script>
 </body>
 </html>
