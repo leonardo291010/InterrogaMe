@@ -249,5 +249,9 @@ function chiudiMenu() {
 }
 </script>
   
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+  
 </body>
 </html>
