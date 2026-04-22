@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+ <script src="quiz.js"></script>
   <meta charset="UTF-8">
   <title>Quiz Educazione Civica - Ambiente</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -226,60 +227,7 @@ difficile: [
 ]
 };
 
-let livello = "";
-let index = 0;
-let punti = 0;
 
-function mostraDomande() {
-  livello = document.getElementById("difficolta").value;
-
-  if (!livello) return alert("Scegli difficoltà!");
-
-  index = 0;
-  punti = 0;
-
-  mostra();
-}
-
-function mostra() {
-  const q = quiz[livello][index];
-
-  document.getElementById("quiz").innerHTML = `
-    <h3>${q.q}</h3>
-    ${q.opzioni.map((op, i) =>
-      `<button onclick="rispondi(${i})">${op}</button>`
-    ).join("")}
-  `;
-}
-
-function rispondi(i) {
-  if (i === quiz[livello][index].giusta) {
-    punti++;
-  }
-
-  index++;
-
-  if (index < quiz[livello].length) {
-    mostra();
-  } else {
-    mostraRisultato();
-  }
-}
-
-function mostraRisultato() {
-  let totale = quiz[livello].length;
-
-  let percentuale = (punti / totale) * 100;
-  let voto = Math.round((percentuale / 10) * 2) / 2;
-
-  document.getElementById("quiz").innerHTML = "";
-
-  document.getElementById("risultato").innerHTML = `
-    📊 Risultato: ${punti}/${totale}<br>
-    📈 Percentuale: ${percentuale.toFixed(0)}%<br>
-    🎓 Voto: ${voto}
-  `;
-}
 </script>
 
 <br><br>
