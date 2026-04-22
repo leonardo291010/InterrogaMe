@@ -2,142 +2,138 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <title>Quiz Geografia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Geografia Italia - InterrogaMe</title>
-<link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<!-- Bottone menu -->
-<button onclick="apriMenu()" style="
-  position:fixed;
-  top:10px;
-  left:10px;
-  z-index:3;
-  font-size:22px;
-  padding:8px 12px;
-  border-radius:8px;
-  background:#333;
-  color:white;
-">
-☰
-</button>
 
-<!-- Menu laterale -->
-<div id="menu" style="
-  height:100%;
-  width:0;
-  position:fixed;
-  top:0;
-  left:0;
-  background:#333;
-  overflow-x:hidden;
-  transition:0.3s;
-  padding-top:60px;
-  z-index:2;
-">
+<!-- MENU -->
+<button class="menu-btn" onclick="apriMenu()">☰</button>
 
-<a href="javascript:void(0)" onclick="chiudiMenu()" style="
-  position:absolute;
-  top:10px;
-  right:20px;
-  font-size:30px;
-  color:white;
-  text-decoration:none;
-">×</a>
+<div id="menu" class="menu">
+  <a href="#" onclick="chiudiMenu()" class="close">×</a>
 
-<a href="storia.html" style="color:white; display:block; padding:12px; text-decoration:none;">Storia</a>
-<a href="geografia-Italia.html" style="color:white; display:block; padding:12px; text-decoration:none;">Geografia</a>
-<a href="scienze-quiz-a-livelli.html" style="color:white; display:block; padding:12px; text-decoration:none;">Scienze</a>
-<a href="quiz-chimica.html" style="color:white; display:block; padding:12px; text-decoration:none;">Chimica</a>
-<a href="educazione-civica-ambiente.html" style="color:white; display:block; padding:12px;">
-Educazione Civica 
-</a>
+  <a href="index.html">Home</a>
+  <a href="storia.html">Storia</a>
+  <a href="geografia.html">Geografia</a>
+  <a href="scienze.html">Scienze</a>
+  <a href="chimica.html">Chimica</a>
+  <a href="educazione-civica.html">Educazione Civica</a>
 </div>
 
-<!-- Overlay (clic fuori per chiudere) -->
-<div id="overlay" onclick="chiudiMenu()" style="
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
-  display:none;
-  z-index:1;
-"></div>
-  
-<h1>SEI PRONTO???</h1>
+<div id="overlay" onclick="chiudiMenu()" class="overlay"></div>
 
-<label>Scegli difficoltà:</label>
+<!-- TITOLO -->
+<h1>🌍 Quiz di Geografia</h1>
+
 <select id="difficolta">
+  <option value="">Scegli difficoltà</option>
   <option value="facile">Facile</option>
   <option value="normale">Normale</option>
   <option value="difficile">Difficile</option>
 </select>
 
-<br><br>
-
-<button onclick="iniziaQuiz()">Inizia interrogazione</button>
-
-<hr>
+<button onclick="mostraDomande()">Inizia</button>
 
 <div id="quiz"></div>
+<h2 id="risultato"></h2>
 
+<!-- QUIZ DATA -->
 <script>
-const domande = {
+const quiz = {
+
   facile: [
-    "Qual è la capitale d’Italia?",
-    "Quante regioni ha l’Italia?",
-    "Qual è il mare che bagna la costa ovest?",
-    "In che continente si trova l’Italia?",
-    "Qual è il nome della forma geografica dell’Italia?"
+    {
+      q: "Capitale d’Italia?",
+      opzioni: ["Roma", "Milano", "Napoli"],
+      giusta: 0
+    },
+    {
+      q: "Quante regioni ha l’Italia?",
+      opzioni: ["20", "18", "22"],
+      giusta: 0
+    },
+    {
+      q: "Mare a ovest dell’Italia?",
+      opzioni: ["Mar Tirreno", "Mar Adriatico", "Mar Ionio"],
+      giusta: 0
+    },
+    {
+      q: "Dove si trova l’Italia?",
+      opzioni: ["Europa", "Asia", "Africa"],
+      giusta: 0
+    },
+    {
+      q: "Forma geografica dell’Italia?",
+      opzioni: ["Stivale", "Triangolo", "Isola"],
+      giusta: 0
+    }
   ],
 
   normale: [
-    "Quali sono le 5 regioni a statuto speciale?",
-    "Qual è il fiume più lungo d’Italia?",
-    "Qual è la montagna più alta d’Italia?",
-    "In che anno l’Italia è diventata una Repubblica?",
-    "Quali sono le tre grandi isole italiane?"
+    {
+      q: "Fiume più lungo d’Italia?",
+      opzioni: ["Po", "Tevere", "Arno"],
+      giusta: 0
+    },
+    {
+      q: "Montagna più alta d’Italia?",
+      opzioni: ["Monte Bianco", "Monte Rosa", "Etna"],
+      giusta: 0
+    },
+    {
+      q: "Anno nascita Repubblica italiana?",
+      opzioni: ["1946", "1939", "1950"],
+      giusta: 0
+    },
+    {
+      q: "Isole principali italiane?",
+      opzioni: ["Sicilia e Sardegna", "Corsica e Creta", "Malta e Ibiza"],
+      giusta: 0
+    },
+    {
+      q: "Regioni a statuto speciale?",
+      opzioni: ["Sicilia, Sardegna, ecc.", "Lombardia e Lazio", "Toscana e Umbria"],
+      giusta: 0
+    }
   ],
 
   difficile: [
-    "Qual è la regione italiana con più comuni?",
-    "Qual è il punto più a nord dell’Italia?",
-    "Quale città è stata capitale d’Italia prima di Roma?",
-    "Qual è la differenza tra Appennini settentrionali e centrali?",
-    "Qual è il nome del passo alpino più alto utilizzato come confine naturale?"
+    {
+      q: "Regione con più comuni?",
+      opzioni: ["Lombardia", "Sicilia", "Lazio"],
+      giusta: 0
+    },
+    {
+      q: "Punto più a nord d’Italia?",
+      opzioni: ["Passo Resia", "Punta Pesce Spada", "Monte Bianco"],
+      giusta: 0
+    },
+    {
+      q: "Prima capitale d’Italia?",
+      opzioni: ["Torino", "Firenze", "Milano"],
+      giusta: 0
+    },
+    {
+      q: "Differenza Appennini settentrionali e centrali?",
+      opzioni: ["Posizione geografica", "Altezza identica", "Tipo di roccia completamente diversa sempre"],
+      giusta: 0
+    },
+    {
+      q: "Passo alpino più alto famoso?",
+      opzioni: ["Colle del Gran San Bernardo", "Passo del Brennero", "Passo dello Stelvio"],
+      giusta: 0
+    }
   ]
+
 };
-
-function iniziaQuiz() {
-  const diff = document.getElementById("difficolta").value;
-  const lista = domande[diff];
-
-  let html = "<h2>Domande:</h2><ol>";
-
-  for (let q of lista) {
-    html += "<li>" + q + "</li>";
-  }
-
-  html += "</ol>";
-
-  document.getElementById("quiz").innerHTML = html;
-}
 </script>
-  
-<script>
-function apriMenu() {
-  document.getElementById("menu").style.width = "250px";
-  document.getElementById("overlay").style.display = "block";
-}
 
-function chiudiMenu() {
-  document.getElementById("menu").style.width = "0";
-  document.getElementById("overlay").style.display = "none";
-}
-</script>
-  
+<!-- LOGICA -->
+<script src="quiz.js"></script>
+
 </body>
 </html>
