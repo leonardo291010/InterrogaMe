@@ -4,29 +4,25 @@
   <meta charset="UTF-8">
   <title>Quiz Storia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body style="font-family: Arial; text-align:center; padding:15px;">
 
-<!-- MENU -->
-<button class="menu-btn" onclick="apriMenu()">☰</button>
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
 
-<div id="menu" class="menu">
-  <a href="#" onclick="chiudiMenu()" class="close">×</a>
-
-  <a href="index.html">Home</a>
-  <a href="storia.html">Storia</a>
-  <a href="geografia.html">Geografia</a>
-  <a href="scienze.html">Scienze</a>
-  <a href="chimica.html">Chimica</a>
-  <a href="educazione-civica.html">Educazione Civica</a>
-</div>
-
-<div id="overlay" onclick="chiudiMenu()" class="overlay"></div>
-
-<!-- TITOLO -->
 <h1>📜 Quiz di Storia</h1>
 
 <select id="difficolta">
@@ -41,146 +37,34 @@
 <div id="quiz"></div>
 <h2 id="risultato"></h2>
 
-<!-- QUIZ DATA -->
 <script>
 const quiz = {
-
   facile: [
-    {
-      q: "Quando è iniziata la Prima guerra mondiale?",
-      opzioni: ["1914", "1939", "1918"],
-      giusta: 0
-    },
-    {
-      q: "Quando è iniziata la Seconda guerra mondiale?",
-      opzioni: ["1939", "1945", "1914"],
-      giusta: 0
-    },
-    {
-      q: "Che cos’è una guerra mondiale?",
-      opzioni: [
-        "Guerra tra molti paesi del mondo",
-        "Guerra solo in Europa",
-        "Guerra civile interna"
-      ],
-      giusta: 0
-    },
-    {
-      q: "Chi era Adolf Hitler?",
-      opzioni: [
-        "Leader della Germania nazista",
-        "Presidente USA",
-        "Re d’Italia"
-      ],
-      giusta: 0
-    },
-    {
-      q: "Fine della Seconda guerra mondiale?",
-      opzioni: ["1945", "1939", "1918"],
-      giusta: 0
-    }
+    { q:"Quando è iniziata la Prima guerra mondiale?", opzioni:["1914","1939","1918"], giusta:0 },
+    { q:"Quando è iniziata la Seconda guerra mondiale?", opzioni:["1939","1945","1914"], giusta:0 },
+    { q:"Cos’è una guerra mondiale?", opzioni:["Guerra tra molti paesi","Solo Europa","Guerra civile"], giusta:0 },
+    { q:"Chi era Hitler?", opzioni:["Leader nazista","Presidente USA","Re Italia"], giusta:0 },
+    { q:"Fine Seconda guerra mondiale?", opzioni:["1945","1939","1918"], giusta:0 }
   ],
 
   normale: [
-    {
-      q: "Quale evento fece iniziare la Prima guerra mondiale?",
-      opzioni: [
-        "Attentato di Sarajevo",
-        "Invasione della Polonia",
-        "Caduta del Muro di Berlino"
-      ],
-      giusta: 0
-    },
-    {
-      q: "Paesi alleati nella Seconda guerra mondiale?",
-      opzioni: [
-        "USA, UK, URSS",
-        "Germania, Italia, Giappone",
-        "Spagna, Portogallo, Grecia"
-      ],
-      giusta: 0
-    },
-    {
-      q: "Cos’erano le trincee?",
-      opzioni: [
-        "Scavi per combattere nella Prima guerra mondiale",
-        "Navi da guerra",
-        "Aerei da combattimento"
-      ],
-      giusta: 0
-    },
-    {
-      q: "Cos’è il fascismo?",
-      opzioni: [
-        "Ideologia politica di Mussolini",
-        "Religione antica",
-        "Sistema economico"
-      ],
-      giusta: 0
-    },
-    {
-      q: "Battaglia di Stalingrado?",
-      opzioni: [
-        "Scontro decisivo della Seconda guerra mondiale",
-        "Rivoluzione italiana",
-        "Trattato di pace"
-      ],
-      giusta: 0
-    }
+    { q:"Evento WWI?", opzioni:["Sarajevo","Polonia","Muro Berlino"], giusta:0 },
+    { q:"Alleati WWII?", opzioni:["USA UK URSS","Asse","Spagna"], giusta:0 },
+    { q:"Trincee?", opzioni:["WWI","Navi","Aerei"], giusta:0 },
+    { q:"Fascismo?", opzioni:["Mussolini","Religione","Economia"], giusta:0 },
+    { q:"Stalingrado?", opzioni:["Battaglia decisiva","Rivoluzione","Pace"], giusta:0 }
   ],
 
   difficile: [
-    {
-      q: "Perché gli USA entrarono nella Seconda guerra mondiale?",
-      opzioni: [
-        "Attacco a Pearl Harbor",
-        "Invasione dell’Italia",
-        "Fine della guerra in Europa"
-      ],
-      giusta: 0
-    },
-    {
-      q: "Cos’era il Trattato di Versailles?",
-      opzioni: [
-        "Accordo di pace dopo la Prima guerra mondiale",
-        "Alleanza militare",
-        "Battaglia navale"
-      ],
-      giusta: 0
-    },
-    {
-      q: "Cos’erano le potenze dell’Asse?",
-      opzioni: [
-        "Germania, Italia, Giappone",
-        "USA, UK, Francia",
-        "URSS, Cina, India"
-      ],
-      giusta: 0
-    },
-    {
-      q: "Guerra totale vs limitata?",
-      opzioni: [
-        "Coinvolgimento di tutta la società",
-        "Uso solo armi leggere",
-        "Guerra tra piccoli eserciti"
-      ],
-      giusta: 0
-    },
-    {
-      q: "Cos’è lo sbarco in Normandia?",
-      opzioni: [
-        "Invasione alleata del 1944",
-        "Attacco giapponese",
-        "Trattato di pace"
-      ],
-      giusta: 0
-    }
+    { q:"Perché USA entrano WWII?", opzioni:["Pearl Harbor","Italia","Fine guerra"], giusta:0 },
+    { q:"Trattato di Versailles?", opzioni:["Pace WWI","Alleanza","Battaglia"], giusta:0 },
+    { q:"Asse?", opzioni:["Germania Italia Giappone","Alleati","URSS Cina"], giusta:0 },
+    { q:"Guerra totale?", opzioni:["Tutti coinvolti","Solo eserciti","Armi leggere"], giusta:0 },
+    { q:"Normandia?", opzioni:["Sbarco 1944","Giappone","Pace"], giusta:0 }
   ]
-
 };
 </script>
 
-<!-- LOGICA -->
 <script src="quiz.js"></script>
 
 </body>
