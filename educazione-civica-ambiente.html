@@ -83,68 +83,147 @@
 
 <script>
 const quiz = {
-  facile: [
-    {
-      q: "Che cos’è l’inquinamento?",
-      opzioni: [
-        "L’aumento della biodiversità",
-        "La presenza di sostanze nocive nell’ambiente",
-        "Il raffreddamento dell’atmosfera"
-      ],
-      giusta: 1
-    },
-    {
-      q: "Qual è una fonte di inquinamento dell’aria?",
-      opzioni: [
-        "Le auto a combustione",
-        "Le rocce naturali",
-        "I vulcani spenti"
-      ],
-      giusta: 0
-    }
-  ],
-
-  normale: [
-    {
-      q: "Che cos’è l’effetto serra?",
-      opzioni: [
-        "Raffreddamento della Terra",
-        "Trattenimento del calore nell’atmosfera",
-        "Distruzione dell’ozono"
-      ],
-      giusta: 1
-    },
-    {
-      q: "Quale gas contribuisce all’effetto serra?",
-      opzioni: [
-        "Anidride carbonica",
-        "Elio",
-        "Neon"
-      ],
-      giusta: 0
-    }
-  ],
-
-  difficile: [
-    {
-      q: "Differenza tra effetto serra naturale e intensificato?",
-      opzioni: [
-        "Sono identici",
-        "Naturale utile, intensificato causato dall’uomo",
-        "Naturale causato dall’inquinamento"
-      ],
-      giusta: 1
-    },
-    {
-      q: "Perché i CFC sono stati vietati?",
-      opzioni: [
-        "Perché migliorano l’ozono",
-        "Perché distruggono lo strato di ozono",
-        "Perché aumentano l’ossigeno"
-      ],
-      giusta: 1
-    }
-  ]
+facile: [
+  {
+    q: "Che cos’è l’inquinamento?",
+    opzioni: [
+      "L’aumento della biodiversità",
+      "La presenza di sostanze nocive nell’ambiente",
+      "Il raffreddamento dell’atmosfera"
+    ],
+    giusta: 1
+  },
+  {
+    q: "Qual è una fonte di inquinamento dell’aria?",
+    opzioni: [
+      "Le auto a combustione",
+      "Le rocce naturali",
+      "I vulcani spenti"
+    ],
+    giusta: 0
+  },
+  {
+    q: "Che cos’è l’atmosfera?",
+    opzioni: [
+      "Lo strato di gas che circonda la Terra",
+      "Il nucleo della Terra",
+      "Gli oceani"
+    ],
+    giusta: 0
+  },
+  {
+    q: "Dove vanno buttati i rifiuti?",
+    opzioni: [
+      "In mare",
+      "Negli appositi contenitori",
+      "Per strada"
+    ],
+    giusta: 1
+  },
+  {
+    q: "Che cos’è il riciclo?",
+    opzioni: [
+      "Bruciare i rifiuti",
+      "Buttare tutto insieme"
+      "Riutilizzare i materiali trasformandoli",
+    ],
+    giusta: 2
+  }
+]
+ normale: [
+  {
+    q: "Che cos’è l’effetto serra?",
+    opzioni: [
+      "Il raffreddamento della Terra",
+      "Il trattenimento del calore nell’atmosfera",
+      "La distruzione dello strato di ozono"
+    ],
+    giusta: 1
+  },
+  {
+    q: "Quali gas sono responsabili dell’effetto serra?",
+    opzioni: [
+      "Anidride carbonica (CO₂)",
+      "Ossigeno puro",
+      "Azoto liquido"
+    ],
+    giusta: 0
+  },
+  {
+    q: "Che cos’è il buco dell’ozono?",
+    opzioni: [
+      "Un aumento dell’ozono nell’atmosfera",
+      "Un foro fisico nella Terra"
+      "Una riduzione dello strato di ozono",
+    ],
+    giusta: 2
+  },
+  {
+    q: "Perché il buco dell’ozono è pericoloso?",
+    opzioni: [
+      "Fa entrare più radiazioni UV",
+      "Raffredda il pianeta",
+      "Aumenta la gravità terrestre"
+    ],
+    giusta: 0
+  },
+  {
+    q: "Quali sono le principali conseguenze dell’inquinamento atmosferico?",
+    opzioni: [
+      "Miglioramento dell’aria",
+      "Problemi respiratori e cambiamenti climatici",
+      "Aumento dell’ossigeno puro"
+    ],
+    giusta: 1
+  }
+]
+difficile: [
+  {
+    q: "Qual è la differenza tra effetto serra naturale e intensificato?",
+    opzioni: [
+      "Sono identici",
+      "Il naturale è utile, quello intensificato è causato dall’uomo",
+      "Il naturale è causato dall’inquinamento"
+    ],
+    giusta: 1
+  },
+  {
+    q: "Che ruolo ha l’anidride carbonica nel riscaldamento globale?",
+    opzioni: [
+      "Riflette il calore nello spazio",
+      "Trattiene il calore nell’atmosfera",
+      "Distrugge l’ossigeno"
+    ],
+    giusta: 1
+  },
+  {
+    q: "Come si formano i gas serra?",
+    opzioni: [
+      "Solo da fenomeni naturali",
+      "Da attività umane e naturali",
+      "Solo dai vulcani spenti"
+    ],
+    giusta: 1
+  },
+  {
+    q: "Perché i CFC sono stati vietati?",
+    opzioni: [
+      "Perché migliorano l’ozono",
+      "Perché distruggono lo strato di ozono",
+      "Perché producono ossigeno in eccesso"
+    ],
+    giusta: 1
+  },
+  {
+    q: "Differenza tra cambiamento climatico e riscaldamento globale?",
+    opzioni: [
+      "Sono la stessa cosa",
+      "Il riscaldamento globale è solo aumento della temperatura, il cambiamento climatico è più ampio",
+      "Il cambiamento climatico riguarda solo le stagioni"
+    ],
+    giusta: 1
+  }
+]
 };
 
 let livello = "";
