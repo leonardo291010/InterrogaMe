@@ -78,52 +78,128 @@
 
 <button onclick="mostraDomande()">Inizia</button>
 
-<div id="domande"></div>
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
 
 <script>
+const quiz = {
+  facile: [
+    {
+      q: "Che cos’è l’inquinamento?",
+      opzioni: [
+        "L’aumento della biodiversità",
+        "La presenza di sostanze nocive nell’ambiente",
+        "Il raffreddamento dell’atmosfera"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Qual è una fonte di inquinamento dell’aria?",
+      opzioni: [
+        "Le auto a combustione",
+        "Le rocce naturali",
+        "I vulcani spenti"
+      ],
+      giusta: 0
+    }
+  ],
+
+  normale: [
+    {
+      q: "Che cos’è l’effetto serra?",
+      opzioni: [
+        "Raffreddamento della Terra",
+        "Trattenimento del calore nell’atmosfera",
+        "Distruzione dell’ozono"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Quale gas contribuisce all’effetto serra?",
+      opzioni: [
+        "Anidride carbonica",
+        "Elio",
+        "Neon"
+      ],
+      giusta: 0
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Differenza tra effetto serra naturale e intensificato?",
+      opzioni: [
+        "Sono identici",
+        "Naturale utile, intensificato causato dall’uomo",
+        "Naturale causato dall’inquinamento"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Perché i CFC sono stati vietati?",
+      opzioni: [
+        "Perché migliorano l’ozono",
+        "Perché distruggono lo strato di ozono",
+        "Perché aumentano l’ossigeno"
+      ],
+      giusta: 1
+    }
+  ]
+};
+
+let livello = "";
+let index = 0;
+let punti = 0;
+
 function mostraDomande() {
-  let scelta = document.getElementById("difficolta").value;
-  let box = document.getElementById("domande");
+  livello = document.getElementById("difficolta").value;
 
-  if (scelta === "facile") {
-    box.innerHTML = `
-      <p>Che cos’è l’inquinamento?</p>
-      <p>Qual è un esempio di fonte di inquinamento dell’aria?</p>
-      <p>Che cos’è l’atmosfera?</p>
-      <p>È meglio buttare i rifiuti per terra o negli appositi contenitori?</p>
-      <p>Che cosa significa “riciclo”?</p>
-    `;
+  if (!livello) return alert("Scegli difficoltà!");
+
+  index = 0;
+  punti = 0;
+
+  mostra();
+}
+
+function mostra() {
+  const q = quiz[livello][index];
+
+  document.getElementById("quiz").innerHTML = `
+    <h3>${q.q}</h3>
+    ${q.opzioni.map((op, i) =>
+      `<button onclick="rispondi(${i})">${op}</button>`
+    ).join("")}
+  `;
+}
+
+function rispondi(i) {
+  if (i === quiz[livello][index].giusta) {
+    punti++;
   }
 
-  if (scelta === "normale") {
-    box.innerHTML = `
-      <p>Che cos’è l’effetto serra?</p>
-      <p>Quali gas sono responsabili dell’effetto serra? (almeno uno)</p>
-      <p>Che cos’è il buco dell’ozono?</p>
-      <p>Perché il buco dell’ozono è pericoloso?</p>
-      <p>Quali sono le principali conseguenze dell’inquinamento atmosferico?</p>
-    `;
-  }
+  index++;
 
-  if (scelta === "difficile") {
-    box.innerHTML = `
-      <p>Qual è la differenza tra effetto serra naturale e effetto serra intensificato dall’uomo?</p>
-      <p>Che ruolo ha l’anidride carbonica nel riscaldamento globale?</p>
-      <p>Come si formano i gas serra nell’atmosfera?</p>
-      <p>Perché i CFC sono stati vietati in molti paesi?</p>
-      <p>Qual è la differenza tra cambiamento climatico e riscaldamento globale?</p>
-    `;
+  if (index < quiz[livello].length) {
+    mostra();
+  } else {
+    mostraRisultato();
   }
 }
 
-function apriMenu() {
-  document.getElementById("menu").style.width = "250px";
-  document.getElementById("overlay").style.display = "block";
-}
+function mostraRisultato() {
+  let totale = quiz[livello].length;
 
-function chiudiMenu() {
-  document.getElementById("menu").style.width = "0";
-  document.getElementById("overlay").style.display = "none";
+  let percentuale = (punti / totale) * 100;
+  let voto = (percentuale / 10).toFixed(1);
+
+  document.getElementById("quiz").innerHTML = "";
+
+  document.getElementById("risultato").innerHTML = `
+    📊 Risultato: ${punti}/${totale}<br>
+    📈 Percentuale: ${percentuale.toFixed(0)}%<br>
+    🎓 Voto: ${voto}
+  `;
 }
 </script>
 
