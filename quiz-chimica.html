@@ -26,8 +26,8 @@
 
 <div id="overlay" onclick="chiudiMenu()" class="overlay"></div>
 
-<!-- CONTENUTO -->
-<h1>SEI PRONTO? ⚛️</h1>
+<!-- TITOLO -->
+<h1>⚛️ Quiz di Chimica</h1>
 
 <select id="difficolta">
   <option value="">Scegli difficoltà</option>
@@ -41,6 +41,7 @@
 <div id="quiz"></div>
 <h2 id="risultato"></h2>
 
+<!-- QUIZ DATA -->
 <script>
 const quiz = {
   facile: [
@@ -55,38 +56,22 @@ const quiz = {
     },
     {
       q: "Particella più piccola che mantiene le proprietà di un elemento?",
-      opzioni: [
-        "Atomo",
-        "Cellula",
-        "Molecola d’aria"
-      ],
+      opzioni: ["Atomo", "Cellula", "Molecola d’aria"],
       giusta: 0
     },
     {
       q: "Sostanza fatta da un solo tipo di atomi?",
-      opzioni: [
-        "Elemento",
-        "Miscuglio",
-        "Soluzione"
-      ],
+      opzioni: ["Elemento", "Miscuglio", "Soluzione"],
       giusta: 0
     },
     {
       q: "L’acqua è…",
-      opzioni: [
-        "Un elemento",
-        "Un composto",
-        "Un metallo"
-      ],
+      opzioni: ["Elemento", "Composto", "Metallo"],
       giusta: 1
     },
     {
       q: "Simbolo dell’ossigeno?",
-      opzioni: [
-        "O",
-        "Ox",
-        "Os"
-      ],
+      opzioni: ["O", "Ox", "Os"],
       giusta: 0
     }
   ],
@@ -94,101 +79,78 @@ const quiz = {
   normale: [
     {
       q: "Da cosa è formato un atomo?",
-      opzioni: [
-        "Protoni, neutroni, elettroni",
-        "Solo protoni e luce",
-        "Molecole e cellule"
-      ],
+      opzioni: ["Protoni, neutroni, elettroni", "Solo protoni", "Molecole"],
       giusta: 0
     },
     {
       q: "Dove si trovano protoni e neutroni?",
-      opzioni: [
-        "Nel nucleo",
-        "Negli elettroni esterni",
-        "Nel vuoto attorno all’atomo"
-      ],
+      opzioni: ["Nel nucleo", "Fuori dall’atomo", "Negli elettroni"],
       giusta: 0
     },
     {
       q: "Cos’è una molecola?",
-      opzioni: [
-        "Insieme di atomi legati",
-        "Un singolo elettrone",
-        "Un tipo di elemento"
-      ],
+      opzioni: ["Atomi legati", "Un elettrone", "Un elemento singolo"],
       giusta: 0
     },
     {
-      q: "Differenza elemento/composto?",
+      q: "Elemento vs composto?",
       opzioni: [
         "Elemento = un tipo di atomo, composto = più elementi",
-        "Sono la stessa cosa",
-        "Il composto è più semplice"
+        "Sono uguali",
+        "Il composto è semplice"
       ],
       giusta: 0
     },
     {
       q: "Cos’è una reazione chimica?",
-      opzioni: [
-        "Cambiamento della materia",
-        "Movimento degli atomi nello spazio",
-        "Divisione di un elemento in cellule"
-      ],
+      opzioni: ["Cambiamento della materia", "Movimento", "Divisione cellule"],
       giusta: 0
     }
   ],
 
   difficile: [
     {
-      q: "Che cos’è il numero atomico?",
+      q: "Numero atomico?",
+      opzioni: ["Protoni", "Elettroni", "Molecole"],
+      giusta: 0
+    },
+    {
+      q: "Massa atomica?",
       opzioni: [
-        "Numero di protoni",
-        "Numero di elettroni esterni",
-        "Numero di molecole"
+        "Media isotopi",
+        "Solo protoni",
+        "Solo elettroni"
       ],
       giusta: 0
     },
     {
-      q: "Differenza massa atomica e numero di massa?",
+      q: "Legame chimico?",
+      opzioni: ["Forza tra atomi", "Separazione", "Movimento aria"],
+      giusta: 0
+    },
+    {
+      q: "Fisica vs chimica?",
       opzioni: [
-        "Massa atomica = media isotopi, numero di massa = protoni + neutroni",
+        "Fisica non cambia sostanza, chimica sì",
         "Sono uguali",
-        "Numero di massa = elettroni"
+        "Chimica è forma"
       ],
       giusta: 0
     },
     {
-      q: "Cos’è un legame chimico?",
+      q: "Conservazione massa?",
       opzioni: [
-        "Forza tra atomi",
-        "Separazione degli atomi",
-        "Movimento delle molecole nell’aria"
-      ],
-      giusta: 0
-    },
-    {
-      q: "Differenza trasformazione fisica e chimica?",
-      opzioni: [
-        "Fisica = non cambia la sostanza, chimica = cambia sostanza",
-        "Sono la stessa cosa",
-        "Chimica = solo cambiamenti di forma"
-      ],
-      giusta: 0
-    },
-    {
-      q: "Legge di conservazione della massa?",
-      opzioni: [
-        "La massa non si crea né si distrugge",
-        "La massa aumenta sempre",
-        "La massa sparisce nelle reazioni"
+        "Non si crea né distrugge",
+        "Aumenta sempre",
+        "Scompare"
       ],
       giusta: 0
     }
   ]
 };
 </script>
-  
+
+<!-- LOGICA -->
 <script src="quiz.js"></script>
 
 </body>
