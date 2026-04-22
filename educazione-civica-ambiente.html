@@ -124,12 +124,12 @@ facile: [
     q: "Che cos’è il riciclo?",
     opzioni: [
       "Bruciare i rifiuti",
-      "Buttare tutto insieme"
-      "Riutilizzare i materiali trasformandoli",
+      "Buttare tutto insieme",
+      "Riutilizzare i materiali trasformandoli"
     ],
     giusta: 2
   }
-]
+],
  normale: [
   {
     q: "Che cos’è l’effetto serra?",
@@ -153,8 +153,8 @@ facile: [
     q: "Che cos’è il buco dell’ozono?",
     opzioni: [
       "Un aumento dell’ozono nell’atmosfera",
-      "Un foro fisico nella Terra"
-      "Una riduzione dello strato di ozono",
+      "Un foro fisico nella Terra",
+      "Una riduzione dello strato di ozono"
     ],
     giusta: 2
   },
@@ -176,7 +176,7 @@ facile: [
     ],
     giusta: 1
   }
-]
+],
 difficile: [
   {
     q: "Qual è la differenza tra effetto serra naturale e intensificato?",
@@ -270,7 +270,7 @@ function mostraRisultato() {
   let totale = quiz[livello].length;
 
   let percentuale = (punti / totale) * 100;
-  let voto = (percentuale / 10).toFixed(1);
+  let voto = Math.round((percentuale / 10) * 2) / 2;
 
   document.getElementById("quiz").innerHTML = "";
 
