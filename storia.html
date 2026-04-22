@@ -1,176 +1,187 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <title>Interrogazione Storia - Guerre Mondiali</title>
- <link rel="stylesheet" href="style.css">
+  <title>Quiz Storia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<!-- Bottone menu -->
-<button onclick="apriMenu()" style="
-  position:fixed;
-  top:10px;
-  left:10px;
-  z-index:3;
-  font-size:22px;
-  padding:8px 12px;
-  border-radius:8px;
-  background:#333;
-  color:white;
-">
-☰
-</button>
 
-<!-- Menu laterale -->
-<div id="menu" style="
-  height:100%;
-  width:0;
-  position:fixed;
-  top:0;
-  left:0;
-  background:#333;
-  overflow-x:hidden;
-  transition:0.3s;
-  padding-top:60px;
-  z-index:2;
-">
+<!-- MENU -->
+<button class="menu-btn" onclick="apriMenu()">☰</button>
 
-<a href="javascript:void(0)" onclick="chiudiMenu()" style="
-  position:absolute;
-  top:10px;
-  right:20px;
-  font-size:30px;
-  color:white;
-  text-decoration:none;
-">×</a>
+<div id="menu" class="menu">
+  <a href="#" onclick="chiudiMenu()" class="close">×</a>
 
-<a href="storia.html" style="color:white; display:block; padding:12px; text-decoration:none;">Storia</a>
-<a href="geografia-Italia.html" style="color:white; display:block; padding:12px; text-decoration:none;">Geografia</a>
-<a href="scienze-quiz-a-livelli.html" style="color:white; display:block; padding:12px; text-decoration:none;">Scienze</a>
-<a href="quiz-chimica.html" style="color:white; display:block; padding:12px; text-decoration:none;">Chimica</a>
-<a href="educazione-civica-ambiente.html" style="color:white; display:block; padding:12px;">
-Educazione Civica 
-</a>
+  <a href="index.html">Home</a>
+  <a href="storia.html">Storia</a>
+  <a href="geografia.html">Geografia</a>
+  <a href="scienze.html">Scienze</a>
+  <a href="chimica.html">Chimica</a>
+  <a href="educazione-civica.html">Educazione Civica</a>
 </div>
 
-<!-- Overlay (clic fuori per chiudere) -->
-<div id="overlay" onclick="chiudiMenu()" style="
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
-  display:none;
-  z-index:1;
-"></div>
-  
-<h1>SEI PRONTO???</h1>
+<div id="overlay" onclick="chiudiMenu()" class="overlay"></div>
 
-<label>Scegli guerra:</label>
-<select id="guerra">
-  <option value="ww1">Prima Guerra Mondiale</option>
-  <option value="ww2">Seconda Guerra Mondiale</option>
-</select>
+<!-- TITOLO -->
+<h1>📜 Quiz di Storia</h1>
 
-<br><br>
-
-<label>Scegli difficoltà:</label>
 <select id="difficolta">
+  <option value="">Scegli difficoltà</option>
   <option value="facile">Facile</option>
   <option value="normale">Normale</option>
   <option value="difficile">Difficile</option>
 </select>
 
-<br><br>
-
-<button onclick="iniziaQuiz()">Inizia interrogazione</button>
-
-<hr>
+<button onclick="mostraDomande()">Inizia</button>
 
 <div id="quiz"></div>
+<h2 id="risultato"></h2>
 
+<!-- QUIZ DATA -->
 <script>
-const domande = {
-  ww1: {
-    facile: [
-      "In che anni è durata la Prima Guerra Mondiale?",
-      "Qual è l’evento che fa scoppiare la guerra nel 1914?",
-      "Quali sono i due schieramenti principali?",
-      "Come si chiamava il principe assassinato a Sarajevo?",
-      "Quale tipo di guerra si combatte soprattutto nelle trincee?"
-    ],
-    normale: [
-      "Perché l’assassinio di Sarajevo ha provocato una guerra mondiale?",
-      "Cos’era la guerra di trincea e perché era così dura?",
-      "Che ruolo aveva l’Italia all’inizio della guerra e poi cosa cambia?",
-      "Cos’era il Patto di Londra?",
-      "Chi era il presidente degli USA che entra in guerra nel 1917?"
-    ],
-    difficile: [
-      "Spiega perché la guerra diventa mondiale anche se nasce in Europa.",
-      "Analizza il ruolo dell’impero austro-ungarico nello scoppio del conflitto.",
-      "Quali furono gli errori strategici della Germania secondo il piano Schlieffen?",
-      "Perché l’entrata in guerra degli USA è decisiva?",
-      "Come cambia l’assetto politico europeo dopo il 1918?"
-    ]
-  },
+const quiz = {
 
-  ww2: {
-    facile: [
-      "In che anni è durata la Seconda Guerra Mondiale?",
-      "Chi era il leader della Germania nazista?",
-      "Quali sono i due schieramenti principali del conflitto?",
-      "Qual è il nome dell’evento del 6 giugno 1944 in Francia?",
-      "Quale paese ha lanciato la bomba atomica su Hiroshima?"
-    ],
-    normale: [
-      "Perché è iniziata la Seconda Guerra Mondiale?",
-      "Cos’è il Patto Molotov-Ribbentrop?",
-      "Qual era il ruolo dell’Italia guidata da Mussolini?",
-      "Cosa fu la battaglia di Stalingrado e perché è importante?",
-      "Cos’è lo sbarco in Normandia?"
-    ],
-    difficile: [
-      "Perché la battaglia di Stalingrado è uno dei punti di svolta?",
-      "Spiega il concetto di guerra totale.",
-      "Quali errori strategici fece Hitler durante la guerra?",
-      "Come funzionava il sistema dei campi di concentramento nazisti?",
-      "Perché il Giappone attaccò Pearl Harbor?"
-    ]
-  }
+  facile: [
+    {
+      q: "Quando è iniziata la Prima guerra mondiale?",
+      opzioni: ["1914", "1939", "1918"],
+      giusta: 0
+    },
+    {
+      q: "Quando è iniziata la Seconda guerra mondiale?",
+      opzioni: ["1939", "1945", "1914"],
+      giusta: 0
+    },
+    {
+      q: "Che cos’è una guerra mondiale?",
+      opzioni: [
+        "Guerra tra molti paesi del mondo",
+        "Guerra solo in Europa",
+        "Guerra civile interna"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Chi era Adolf Hitler?",
+      opzioni: [
+        "Leader della Germania nazista",
+        "Presidente USA",
+        "Re d’Italia"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Fine della Seconda guerra mondiale?",
+      opzioni: ["1945", "1939", "1918"],
+      giusta: 0
+    }
+  ],
+
+  normale: [
+    {
+      q: "Quale evento fece iniziare la Prima guerra mondiale?",
+      opzioni: [
+        "Attentato di Sarajevo",
+        "Invasione della Polonia",
+        "Caduta del Muro di Berlino"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Paesi alleati nella Seconda guerra mondiale?",
+      opzioni: [
+        "USA, UK, URSS",
+        "Germania, Italia, Giappone",
+        "Spagna, Portogallo, Grecia"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’erano le trincee?",
+      opzioni: [
+        "Scavi per combattere nella Prima guerra mondiale",
+        "Navi da guerra",
+        "Aerei da combattimento"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è il fascismo?",
+      opzioni: [
+        "Ideologia politica di Mussolini",
+        "Religione antica",
+        "Sistema economico"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Battaglia di Stalingrado?",
+      opzioni: [
+        "Scontro decisivo della Seconda guerra mondiale",
+        "Rivoluzione italiana",
+        "Trattato di pace"
+      ],
+      giusta: 0
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Perché gli USA entrarono nella Seconda guerra mondiale?",
+      opzioni: [
+        "Attacco a Pearl Harbor",
+        "Invasione dell’Italia",
+        "Fine della guerra in Europa"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’era il Trattato di Versailles?",
+      opzioni: [
+        "Accordo di pace dopo la Prima guerra mondiale",
+        "Alleanza militare",
+        "Battaglia navale"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’erano le potenze dell’Asse?",
+      opzioni: [
+        "Germania, Italia, Giappone",
+        "USA, UK, Francia",
+        "URSS, Cina, India"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Guerra totale vs limitata?",
+      opzioni: [
+        "Coinvolgimento di tutta la società",
+        "Uso solo armi leggere",
+        "Guerra tra piccoli eserciti"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è lo sbarco in Normandia?",
+      opzioni: [
+        "Invasione alleata del 1944",
+        "Attacco giapponese",
+        "Trattato di pace"
+      ],
+      giusta: 0
+    }
+  ]
+
 };
-
-function iniziaQuiz() {
-  const guerra = document.getElementById("guerra").value;
-  const diff = document.getElementById("difficolta").value;
-
-  const lista = domande[guerra][diff];
-
-  let html = "<h2>Domande:</h2><ol>";
-
-  for (let q of lista) {
-    html += "<li>" + q + "</li>";
-  }
-
-  html += "</ol>";
-
-  document.getElementById("quiz").innerHTML = html;
-}
 </script>
-  
-<script>
-function apriMenu() {
-  document.getElementById("menu").style.width = "250px";
-  document.getElementById("overlay").style.display = "block";
-}
 
-function chiudiMenu() {
-  document.getElementById("menu").style.width = "0";
-  document.getElementById("overlay").style.display = "none";
-}
-</script>
-  
+<!-- LOGICA -->
+<script src="quiz.js"></script>
+
 </body>
 </html>
