@@ -4,29 +4,25 @@
   <meta charset="UTF-8">
   <title>Quiz Geografia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body style="font-family: Arial; text-align:center; padding:15px;">
 
-<!-- MENU -->
-<button class="menu-btn" onclick="apriMenu()">☰</button>
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
 
-<div id="menu" class="menu">
-  <a href="#" onclick="chiudiMenu()" class="close">×</a>
-
-  <a href="index.html">Home</a>
-  <a href="storia.html">Storia</a>
-  <a href="geografia.html">Geografia</a>
-  <a href="scienze.html">Scienze</a>
-  <a href="chimica.html">Chimica</a>
-  <a href="educazione-civica.html">Educazione Civica</a>
-</div>
-
-<div id="overlay" onclick="chiudiMenu()" class="overlay"></div>
-
-<!-- TITOLO -->
 <h1>🌍 Quiz di Geografia</h1>
 
 <select id="difficolta">
@@ -41,98 +37,34 @@
 <div id="quiz"></div>
 <h2 id="risultato"></h2>
 
-<!-- QUIZ DATA -->
 <script>
 const quiz = {
-
   facile: [
-    {
-      q: "Capitale d’Italia?",
-      opzioni: ["Roma", "Milano", "Napoli"],
-      giusta: 0
-    },
-    {
-      q: "Quante regioni ha l’Italia?",
-      opzioni: ["20", "18", "22"],
-      giusta: 0
-    },
-    {
-      q: "Mare a ovest dell’Italia?",
-      opzioni: ["Mar Tirreno", "Mar Adriatico", "Mar Ionio"],
-      giusta: 0
-    },
-    {
-      q: "Dove si trova l’Italia?",
-      opzioni: ["Europa", "Asia", "Africa"],
-      giusta: 0
-    },
-    {
-      q: "Forma geografica dell’Italia?",
-      opzioni: ["Stivale", "Triangolo", "Isola"],
-      giusta: 0
-    }
+    { q:"Capitale d’Italia?", opzioni:["Roma","Milano","Napoli"], giusta:0 },
+    { q:"Regioni Italia?", opzioni:["20","18","22"], giusta:0 },
+    { q:"Mare ovest?", opzioni:["Tirreno","Adriatico","Ionio"], giusta:0 },
+    { q:"Dove si trova Italia?", opzioni:["Europa","Asia","Africa"], giusta:0 },
+    { q:"Forma Italia?", opzioni:["Stivale","Triangolo","Isola"], giusta:0 }
   ],
 
   normale: [
-    {
-      q: "Fiume più lungo d’Italia?",
-      opzioni: ["Po", "Tevere", "Arno"],
-      giusta: 0
-    },
-    {
-      q: "Montagna più alta d’Italia?",
-      opzioni: ["Monte Bianco", "Monte Rosa", "Etna"],
-      giusta: 0
-    },
-    {
-      q: "Anno nascita Repubblica italiana?",
-      opzioni: ["1946", "1939", "1950"],
-      giusta: 0
-    },
-    {
-      q: "Isole principali italiane?",
-      opzioni: ["Sicilia e Sardegna", "Corsica e Creta", "Malta e Ibiza"],
-      giusta: 0
-    },
-    {
-      q: "Regioni a statuto speciale?",
-      opzioni: ["Sicilia, Sardegna, ecc.", "Lombardia e Lazio", "Toscana e Umbria"],
-      giusta: 0
-    }
+    { q:"Fiume più lungo?", opzioni:["Po","Tevere","Arno"], giusta:0 },
+    { q:"Montagna più alta?", opzioni:["Monte Bianco","Etna","Rosa"], giusta:0 },
+    { q:"Anno Repubblica?", opzioni:["1946","1939","1950"], giusta:0 },
+    { q:"Isole principali?", opzioni:["Sicilia Sardegna","Corsica","Malta"], giusta:0 },
+    { q:"Regioni speciali?", opzioni:["Sicilia Sardegna","Lombardia","Toscana"], giusta:0 }
   ],
 
   difficile: [
-    {
-      q: "Regione con più comuni?",
-      opzioni: ["Lombardia", "Sicilia", "Lazio"],
-      giusta: 0
-    },
-    {
-      q: "Punto più a nord d’Italia?",
-      opzioni: ["Passo Resia", "Punta Pesce Spada", "Monte Bianco"],
-      giusta: 0
-    },
-    {
-      q: "Prima capitale d’Italia?",
-      opzioni: ["Torino", "Firenze", "Milano"],
-      giusta: 0
-    },
-    {
-      q: "Differenza Appennini settentrionali e centrali?",
-      opzioni: ["Posizione geografica", "Altezza identica", "Tipo di roccia completamente diversa sempre"],
-      giusta: 0
-    },
-    {
-      q: "Passo alpino più alto famoso?",
-      opzioni: ["Colle del Gran San Bernardo", "Passo del Brennero", "Passo dello Stelvio"],
-      giusta: 0
-    }
+    { q:"Regione più comuni?", opzioni:["Lombardia","Sicilia","Lazio"], giusta:0 },
+    { q:"Nord Italia?", opzioni:["Passo Resia","Etna","Roma"], giusta:0 },
+    { q:"Prima capitale?", opzioni:["Torino","Milano","Firenze"], giusta:0 },
+    { q:"Appennini?", opzioni:["Posizione","Altezza","Roccia"], giusta:0 },
+    { q:"Passo alpino?", opzioni:["Gran San Bernardo","Brennero","Stelvio"], giusta:0 }
   ]
-
 };
 </script>
 
-<!-- LOGICA -->
 <script src="quiz.js"></script>
 
 </body>
