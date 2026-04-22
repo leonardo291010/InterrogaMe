@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+  <script src="quiz.js"></script>
   <meta charset="UTF-8">
   <title>Quiz Chimica - InterrogaMe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,8 +83,153 @@ Educazione Civica
 
 <button onclick="mostraDomande()">Inizia</button>
 
-<div id="domande"></div>
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
+const quiz = {
+  facile: [
+    {
+      q: "Che cosa studia la chimica?",
+      opzioni: [
+        "Le leggi dello spazio",
+        "La materia e le sue trasformazioni",
+        "Solo gli organismi viventi"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Particella più piccola che mantiene le proprietà di un elemento?",
+      opzioni: [
+        "Atomo",
+        "Cellula",
+        "Molecola d’aria"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Sostanza fatta da un solo tipo di atomi?",
+      opzioni: [
+        "Elemento",
+        "Miscuglio",
+        "Soluzione"
+      ],
+      giusta: 0
+    },
+    {
+      q: "L’acqua è…",
+      opzioni: [
+        "Un elemento",
+        "Un composto",
+        "Un metallo"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Simbolo dell’ossigeno?",
+      opzioni: [
+        "O",
+        "Ox",
+        "Os"
+      ],
+      giusta: 0
+    }
+  ],
 
+  normale: [
+    {
+      q: "Da cosa è formato un atomo?",
+      opzioni: [
+        "Protoni, neutroni, elettroni",
+        "Solo protoni e luce",
+        "Molecole e cellule"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Dove si trovano protoni e neutroni?",
+      opzioni: [
+        "Nel nucleo",
+        "Negli elettroni esterni",
+        "Nel vuoto attorno all’atomo"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è una molecola?",
+      opzioni: [
+        "Insieme di atomi legati",
+        "Un singolo elettrone",
+        "Un tipo di elemento"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Differenza elemento/composto?",
+      opzioni: [
+        "Elemento = un tipo di atomo, composto = più elementi",
+        "Sono la stessa cosa",
+        "Il composto è più semplice"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è una reazione chimica?",
+      opzioni: [
+        "Cambiamento della materia",
+        "Movimento degli atomi nello spazio",
+        "Divisione di un elemento in cellule"
+      ],
+      giusta: 0
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Che cos’è il numero atomico?",
+      opzioni: [
+        "Numero di protoni",
+        "Numero di elettroni esterni",
+        "Numero di molecole"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Differenza massa atomica e numero di massa?",
+      opzioni: [
+        "Massa atomica = media isotopi, numero di massa = protoni + neutroni",
+        "Sono uguali",
+        "Numero di massa = elettroni"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è un legame chimico?",
+      opzioni: [
+        "Forza tra atomi",
+        "Separazione degli atomi",
+        "Movimento delle molecole nell’aria"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Differenza trasformazione fisica e chimica?",
+      opzioni: [
+        "Fisica = non cambia la sostanza, chimica = cambia sostanza",
+        "Sono la stessa cosa",
+        "Chimica = solo cambiamenti di forma"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Legge di conservazione della massa?",
+      opzioni: [
+        "La massa non si crea né si distrugge",
+        "La massa aumenta sempre",
+        "La massa sparisce nelle reazioni"
+      ],
+      giusta: 0
+    }
+  ]
+};
 <script>
 function mostraDomande() {
   let scelta = document.getElementById("difficolta").value;
