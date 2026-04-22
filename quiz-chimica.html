@@ -4,29 +4,25 @@
   <meta charset="UTF-8">
   <title>Quiz Chimica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body style="font-family: Arial; text-align:center; padding:15px;">
 
-<!-- MENU -->
-<button class="menu-btn" onclick="apriMenu()">☰</button>
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
 
-<div id="menu" class="menu">
-  <a href="#" onclick="chiudiMenu()" class="close">×</a>
-
-  <a href="index.html">Home</a>
-  <a href="storia.html">Storia</a>
-  <a href="geografia.html">Geografia</a>
-  <a href="scienze.html">Scienze</a>
-  <a href="chimica.html">Chimica</a>
-  <a href="educazione-civica.html">Educazione Civica</a>
-</div>
-
-<div id="overlay" onclick="chiudiMenu()" class="overlay"></div>
-
-<!-- TITOLO -->
 <h1>⚛️ Quiz di Chimica</h1>
 
 <select id="difficolta">
@@ -41,36 +37,36 @@
 <div id="quiz"></div>
 <h2 id="risultato"></h2>
 
-<!-- QUIZ DATA -->
 <script>
 const quiz = {
+
   facile: [
     {
       q: "Che cosa studia la chimica?",
       opzioni: [
-        "Le leggi dello spazio",
         "La materia e le sue trasformazioni",
-        "Solo gli organismi viventi"
+        "Le stelle",
+        "Gli animali"
       ],
-      giusta: 1
-    },
-    {
-      q: "Particella più piccola che mantiene le proprietà di un elemento?",
-      opzioni: ["Atomo", "Cellula", "Molecola d’aria"],
       giusta: 0
     },
     {
-      q: "Sostanza fatta da un solo tipo di atomi?",
+      q: "Particella più piccola di un elemento?",
+      opzioni: ["Atomo", "Cellula", "Molecola"],
+      giusta: 0
+    },
+    {
+      q: "Sostanza con un solo tipo di atomi?",
       opzioni: ["Elemento", "Miscuglio", "Soluzione"],
       giusta: 0
     },
     {
-      q: "L’acqua è…",
-      opzioni: ["Elemento", "Composto", "Metallo"],
-      giusta: 1
+      q: "L’acqua è?",
+      opzioni: ["Composto", "Elemento", "Metallo"],
+      giusta: 0
     },
     {
-      q: "Simbolo dell’ossigeno?",
+      q: "Simbolo ossigeno?",
       opzioni: ["O", "Ox", "Os"],
       giusta: 0
     }
@@ -79,31 +75,43 @@ const quiz = {
   normale: [
     {
       q: "Da cosa è formato un atomo?",
-      opzioni: ["Protoni, neutroni, elettroni", "Solo protoni", "Molecole"],
-      giusta: 0
-    },
-    {
-      q: "Dove si trovano protoni e neutroni?",
-      opzioni: ["Nel nucleo", "Fuori dall’atomo", "Negli elettroni"],
-      giusta: 0
-    },
-    {
-      q: "Cos’è una molecola?",
-      opzioni: ["Un elettrone", "Un elemento singolo","Atomi legati"],
-      giusta: 2
-    },
-    {
-      q: "Elemento vs composto?",
       opzioni: [
-        "Elemento = un tipo di atomo, composto = più elementi",
-        "Sono uguali",
-        "Il composto è semplice"
+        "Protoni neutroni elettroni",
+        "Solo protoni",
+        "Solo molecole"
       ],
       giusta: 0
     },
     {
-      q: "Cos’è una reazione chimica?",
-      opzioni: ["Cambiamento della materia", "Movimento", "Divisione cellule"],
+      q: "Dove stanno protoni e neutroni?",
+      opzioni: ["Nucleo", "Esterno", "Elettroni"],
+      giusta: 0
+    },
+    {
+      q: "Cos’è una molecola?",
+      opzioni: [
+        "Atomi legati",
+        "Elettrone singolo",
+        "Elemento puro"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Elemento vs composto?",
+      opzioni: [
+        "Elemento = un tipo di atomo",
+        "Uguali",
+        "Composto = un atomo"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Reazione chimica?",
+      opzioni: [
+        "Trasformazione materia",
+        "Movimento aria",
+        "Divisione cellule"
+      ],
       giusta: 0
     }
   ],
@@ -111,7 +119,7 @@ const quiz = {
   difficile: [
     {
       q: "Numero atomico?",
-      opzioni: ["Protoni", "Elettroni", "Molecole"],
+      opzioni: ["Protoni", "Elettroni", "Neutroni"],
       giusta: 0
     },
     {
@@ -125,32 +133,36 @@ const quiz = {
     },
     {
       q: "Legame chimico?",
-      opzioni: ["Forza tra atomi", "Separazione", "Movimento aria"],
+      opzioni: [
+        "Forza tra atomi",
+        "Separazione atomi",
+        "Movimento aria"
+      ],
       giusta: 0
     },
     {
       q: "Fisica vs chimica?",
       opzioni: [
-        "Sono uguali",
+        "Fisica non cambia sostanza",
+        "Uguali",
         "Chimica è forma"
-        "Fisica non cambia sostanza, chimica sì",
       ],
-      giusta: 2
+      giusta: 0
     },
     {
       q: "Conservazione massa?",
       opzioni: [
         "Non si crea né distrugge",
-        "Aumenta sempre",
+        "Aumenta",
         "Scompare"
       ],
       giusta: 0
     }
   ]
+
 };
 </script>
 
-<!-- LOGICA -->
 <script src="quiz.js"></script>
 
 </body>
