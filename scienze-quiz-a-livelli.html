@@ -2,76 +2,32 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Quiz Sistema Solare - InterrogaMe</title>
+  <title>Quiz Astronomia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<!-- Bottone menu -->
-<button onclick="apriMenu()" style="
-  position:fixed;
-  top:10px;
-  left:10px;
-  z-index:3;
-  font-size:22px;
-  padding:8px 12px;
-  border-radius:8px;
-  background:#333;
-  color:white;
-">
-☰
-</button>
 
-<!-- Menu laterale -->
-<div id="menu" style="
-  height:100%;
-  width:0;
-  position:fixed;
-  top:0;
-  left:0;
-  background:#333;
-  overflow-x:hidden;
-  transition:0.3s;
-  padding-top:60px;
-  z-index:2;
-">
+<!-- MENU -->
+<button class="menu-btn" onclick="apriMenu()">☰</button>
 
-<a href="javascript:void(0)" onclick="chiudiMenu()" style="
-  position:absolute;
-  top:10px;
-  right:20px;
-  font-size:30px;
-  color:white;
-  text-decoration:none;
-">×</a>
+<div id="menu" class="menu">
+  <a href="#" onclick="chiudiMenu()" class="close">×</a>
 
-<a href="storia.html" style="color:white; display:block; padding:12px; text-decoration:none;">Storia</a>
-<a href="geografia-Italia.html" style="color:white; display:block; padding:12px; text-decoration:none;">Geografia</a>
-<a href="scienze-quiz-a-livelli.html" style="color:white; display:block; padding:12px; text-decoration:none;">Scienze</a>
-<a href="quiz-chimica.html" style="color:white; display:block; padding:12px; text-decoration:none;">Chimica</a>
-<a href="educazione-civica-ambiente.html" style="color:white; display:block; padding:12px;">
-Educazione Civica 
-</a>
+  <a href="index.html">Home</a>
+  <a href="storia.html">Storia</a>
+  <a href="geografia.html">Geografia</a>
+  <a href="scienze.html">Scienze</a>
+  <a href="chimica.html">Chimica</a>
+  <a href="educazione-civica.html">Educazione Civica</a>
 </div>
 
-<!-- Overlay (clic fuori per chiudere) -->
-<div id="overlay" onclick="chiudiMenu()" style="
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
-  display:none;
-  z-index:1;
-"></div>
-  
-<h1>SEI PRONTO??? 🚀</h1>
+<div id="overlay" onclick="chiudiMenu()" class="overlay"></div>
 
-<p>Quiz sul Sistema Solare</p>
+<!-- TITOLO -->
+<h1>🌌 Quiz di Scienze</h1>
 
 <select id="difficolta">
   <option value="">Scegli difficoltà</option>
@@ -82,58 +38,114 @@ Educazione Civica
 
 <button onclick="mostraDomande()">Inizia</button>
 
-<div id="domande"></div>
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
 
+<!-- QUIZ DATA -->
 <script>
-function mostraDomande() {
-  let scelta = document.getElementById("difficolta").value;
-  let box = document.getElementById("domande");
+const quiz = {
 
-  if (scelta === "facile") {
-    box.innerHTML = `
-      <p>Qual è la stella al centro del Sistema Solare?</p>
-      <p>Qual è il pianeta su cui viviamo?</p>
-      <p>Qual è il pianeta più vicino al Sole?</p>
-      <p>Qual è il pianeta più grande del Sistema Solare?</p>
-      <p>Come si chiama il nostro satellite naturale?</p>
-    `;
-  }
+  facile: [
+    {
+      q: "Qual è la stella al centro del Sistema Solare?",
+      opzioni: ["Sole", "Luna", "Marte"],
+      giusta: 0
+    },
+    {
+      q: "Qual è il pianeta su cui viviamo?",
+      opzioni: ["Terra", "Venere", "Giove"],
+      giusta: 0
+    },
+    {
+      q: "Pianeta più vicino al Sole?",
+      opzioni: ["Mercurio", "Marte", "Venere"],
+      giusta: 0
+    },
+    {
+      q: "Pianeta più grande?",
+      opzioni: ["Giove", "Saturno", "Terra"],
+      giusta: 0
+    },
+    {
+      q: "Satellite naturale della Terra?",
+      opzioni: ["Luna", "Io", "Titano"],
+      giusta: 0
+    }
+  ],
 
-  if (scelta === "normale") {
-    box.innerHTML = `
-      <p>Qual è il pianeta noto per i suoi anelli?</p>
-      <p>Qual è il pianeta più caldo del Sistema Solare?</p>
-      <p>Qual è il pianeta più lontano dal Sole (tra quelli ufficiali)?</p>
-      <p>Come si chiama la fascia di asteroidi tra Marte e Giove?</p>
-      <p>Qual è il pianeta chiamato “gigante rosso”?</p>
-    `;
-  }
+  normale: [
+    {
+      q: "Pianeta con gli anelli più famosi?",
+      opzioni: ["Saturno", "Giove", "Urano"],
+      giusta: 0
+    },
+    {
+      q: "Pianeta più caldo?",
+      opzioni: ["Venere", "Mercurio", "Marte"],
+      giusta: 0
+    },
+    {
+      q: "Fascia tra Marte e Giove?",
+      opzioni: ["Fascia degli asteroidi", "Fascia di Kuiper", "Nube di Oort"],
+      giusta: 0
+    },
+    {
+      q: "Pianeta più lontano tra quelli principali?",
+      opzioni: ["Nettuno", "Plutone", "Urano"],
+      giusta: 0
+    },
+    {
+      q: "Cos’è la gravità?",
+      opzioni: [
+        "Forza che attrae i corpi",
+        "Energia luminosa",
+        "Movimento dell’aria"
+      ],
+      giusta: 0
+    }
+  ],
 
-  if (scelta === "difficile") {
-    box.innerHTML = `
-      <p>Qual è il pianeta con il giorno più lungo (rotazione più lenta)?</p>
-      <p>Quale pianeta ha il maggior numero di satelliti naturali conosciuti?</p>
-      <p>Come si chiama la nube che si pensa circondi il Sistema Solare piena di comete?</p>
-      <p>Qual è la velocità approssimativa della luce (in km/s)?</p>
-      <p>Qual è il nome della forza che tiene i pianeti in orbita attorno al Sole?</p>
-    `;
-  }
-}
+  difficile: [
+    {
+      q: "Pianeta con rotazione più lenta?",
+      opzioni: ["Venere", "Mercurio", "Saturno"],
+      giusta: 0
+    },
+    {
+      q: "Nube di comete ai confini del Sistema Solare?",
+      opzioni: ["Nube di Oort", "Fascia di Kuiper", "Via Lattea"],
+      giusta: 0
+    },
+    {
+      q: "Velocità della luce circa?",
+      opzioni: ["300.000 km/s", "30.000 km/s", "3.000 km/s"],
+      giusta: 0
+    },
+    {
+      q: "Perché i pianeti orbitano?",
+      opzioni: [
+        "Gravità del Sole",
+        "Vento solare",
+        "Luce solare"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è un anno luce?",
+      opzioni: [
+        "Distanza percorsa dalla luce in un anno",
+        "Tempo che la luce impiega a spegnersi",
+        "Velocità della luce"
+      ],
+      giusta: 0
+    }
+  ]
+
+};
 </script>
 
-<br><br>
+<!-- LOGICA -->
+<script src="quiz.js"></script>
 
-<script>
-function apriMenu() {
-  document.getElementById("menu").style.width = "250px";
-  document.getElementById("overlay").style.display = "block";
-}
-
-function chiudiMenu() {
-  document.getElementById("menu").style.width = "0";
-  document.getElementById("overlay").style.display = "none";
-}
-</script>
-  
 </body>
 </html>
