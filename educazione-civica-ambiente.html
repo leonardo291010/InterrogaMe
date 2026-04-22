@@ -1,74 +1,29 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
- <script src="quiz.js"></script>
   <meta charset="UTF-8">
-  <title>Quiz Educazione Civica - Ambiente</title>
+  <title>Quiz Educazione Civica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="font-family: Arial; text-align:center; background:#f5f5f5; padding:15px;">
+<body style="font-family: Arial; text-align:center; padding:15px;">
 
-<!-- MENU -->
-<button onclick="apriMenu()" style="
+<button onclick="location.href='index.html'" style="
   position:fixed;
   top:10px;
   left:10px;
-  z-index:3;
-  font-size:22px;
-  padding:8px 12px;
+  z-index:10;
+  padding:10px 15px;
   border-radius:8px;
   background:#333;
   color:white;
-">☰</button>
-
-<div id="menu" style="
-  height:100%;
-  width:0;
-  position:fixed;
-  top:0;
-  left:0;
-  background:#333;
-  overflow-x:hidden;
-  transition:0.3s;
-  padding-top:60px;
-  z-index:2;
+  border:none;
 ">
+⬅ Home
+</button>
 
-<a href="javascript:void(0)" onclick="chiudiMenu()" style="
-  position:absolute;
-  top:10px;
-  right:20px;
-  font-size:30px;
-  color:white;
-  text-decoration:none;
-">×</a>
-
-<a href="storia.html" style="color:white; display:block; padding:12px;">Storia</a>
-<a href="geografia-Italia.html" style="color:white; display:block; padding:12px;">Geografia</a>
-<a href="scienze-quiz-a-livelli.html" style="color:white; display:block; padding:12px;">Scienze</a>
-<a href="quiz-chimica.html" style="color:white; display:block; padding:12px;">Chimica</a>
-<a href="educazione-civica-ambiente.html" style="color:white; display:block; padding:12px;">Educazione Civica 🌍</a>
-
-</div>
-
-<div id="overlay" onclick="chiudiMenu()" style="
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
-  display:none;
-  z-index:1;
-"></div>
-
-<!-- CONTENUTO -->
-
-<h1>Quiz Educazione Civica 🌍</h1>
-
-<p>Ambiente, inquinamento ed effetto serra</p>
+<h1>🌍 Quiz Educazione Civica</h1>
 
 <select id="difficolta">
   <option value="">Scegli difficoltà</option>
@@ -84,154 +39,155 @@
 
 <script>
 const quiz = {
-facile: [
-  {
-    q: "Che cos’è l’inquinamento?",
-    opzioni: [
-      "L’aumento della biodiversità",
-      "La presenza di sostanze nocive nell’ambiente",
-      "Il raffreddamento dell’atmosfera"
-    ],
-    giusta: 1
-  },
-  {
-    q: "Qual è una fonte di inquinamento dell’aria?",
-    opzioni: [
-      "Le auto a combustione",
-      "Le rocce naturali",
-      "I vulcani spenti"
-    ],
-    giusta: 0
-  },
-  {
-    q: "Che cos’è l’atmosfera?",
-    opzioni: [
-      "Lo strato di gas che circonda la Terra",
-      "Il nucleo della Terra",
-      "Gli oceani"
-    ],
-    giusta: 0
-  },
-  {
-    q: "Dove vanno buttati i rifiuti?",
-    opzioni: [
-      "In mare",
-      "Negli appositi contenitori",
-      "Per strada"
-    ],
-    giusta: 1
-  },
-  {
-    q: "Che cos’è il riciclo?",
-    opzioni: [
-      "Bruciare i rifiuti",
-      "Buttare tutto insieme",
-      "Riutilizzare i materiali trasformandoli"
-    ],
-    giusta: 2
-  }
-],
- normale: [
-  {
-    q: "Che cos’è l’effetto serra?",
-    opzioni: [
-      "Il raffreddamento della Terra",
-      "Il trattenimento del calore nell’atmosfera",
-      "La distruzione dello strato di ozono"
-    ],
-    giusta: 1
-  },
-  {
-    q: "Quali gas sono responsabili dell’effetto serra?",
-    opzioni: [
-      "Anidride carbonica (CO₂)",
-      "Ossigeno puro",
-      "Azoto liquido"
-    ],
-    giusta: 0
-  },
-  {
-    q: "Che cos’è il buco dell’ozono?",
-    opzioni: [
-      "Un aumento dell’ozono nell’atmosfera",
-      "Un foro fisico nella Terra",
-      "Una riduzione dello strato di ozono"
-    ],
-    giusta: 2
-  },
-  {
-    q: "Perché il buco dell’ozono è pericoloso?",
-    opzioni: [
-      "Fa entrare più radiazioni UV",
-      "Raffredda il pianeta",
-      "Aumenta la gravità terrestre"
-    ],
-    giusta: 0
-  },
-  {
-    q: "Quali sono le principali conseguenze dell’inquinamento atmosferico?",
-    opzioni: [
-      "Miglioramento dell’aria",
-      "Problemi respiratori e cambiamenti climatici",
-      "Aumento dell’ossigeno puro"
-    ],
-    giusta: 1
-  }
-],
-difficile: [
-  {
-    q: "Qual è la differenza tra effetto serra naturale e intensificato?",
-    opzioni: [
-      "Sono identici",
-      "Il naturale è utile, quello intensificato è causato dall’uomo",
-      "Il naturale è causato dall’inquinamento"
-    ],
-    giusta: 1
-  },
-  {
-    q: "Che ruolo ha l’anidride carbonica nel riscaldamento globale?",
-    opzioni: [
-      "Riflette il calore nello spazio",
-      "Trattiene il calore nell’atmosfera",
-      "Distrugge l’ossigeno"
-    ],
-    giusta: 1
-  },
-  {
-    q: "Come si formano i gas serra?",
-    opzioni: [
-      "Solo da fenomeni naturali",
-      "Da attività umane e naturali",
-      "Solo dai vulcani spenti"
-    ],
-    giusta: 1
-  },
-  {
-    q: "Perché i CFC sono stati vietati?",
-    opzioni: [
-      "Perché migliorano l’ozono",
-      "Perché distruggono lo strato di ozono",
-      "Perché producono ossigeno in eccesso"
-    ],
-    giusta: 1
-  },
-  {
-    q: "Differenza tra cambiamento climatico e riscaldamento globale?",
-    opzioni: [
-      "Sono la stessa cosa",
-      "Il riscaldamento globale è solo aumento della temperatura, il cambiamento climatico è più ampio",
-      "Il cambiamento climatico riguarda solo le stagioni"
-    ],
-    giusta: 1
-  }
-]
+
+  facile: [
+    {
+      q: "Che cos’è l’inquinamento?",
+      opzioni: [
+        "Presenza di sostanze nocive nell’ambiente",
+        "Aumento della biodiversità",
+        "Raffreddamento dell’atmosfera"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Dove vanno buttati i rifiuti?",
+      opzioni: [
+        "Negli appositi contenitori",
+        "Per strada",
+        "In mare"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è il riciclo?",
+      opzioni: [
+        "Riutilizzo dei materiali",
+        "Bruciare i rifiuti",
+        "Buttare tutto insieme"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è l’atmosfera?",
+      opzioni: [
+        "Strato di gas della Terra",
+        "Nucleo terrestre",
+        "Oceani"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Una fonte di inquinamento?",
+      opzioni: [
+        "Auto a benzina",
+        "Piante",
+        "Pioggia"
+      ],
+      giusta: 0
+    }
+  ],
+
+  normale: [
+    {
+      q: "Cos’è l’effetto serra?",
+      opzioni: [
+        "Trattenimento del calore nell’atmosfera",
+        "Raffreddamento Terra",
+        "Distruzione ossigeno"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Gas principale effetto serra?",
+      opzioni: [
+        "CO₂",
+        "Ossigeno",
+        "Azoto liquido"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è il buco dell’ozono?",
+      opzioni: [
+        "Riduzione ozono",
+        "Foro nella Terra",
+        "Aumento ossigeno"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Perché è pericoloso?",
+      opzioni: [
+        "Fa entrare raggi UV",
+        "Raffredda oceani",
+        "Aumenta gravità"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Conseguenze inquinamento?",
+      opzioni: [
+        "Problemi respiratori",
+        "Aria più pulita",
+        "Più ossigeno"
+      ],
+      giusta: 0
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Effetto serra naturale vs umano?",
+      opzioni: [
+        "Naturale utile, umano eccessivo",
+        "Sono uguali",
+        "Naturale pericoloso"
+      ],
+      giusta: 0
+    },
+    {
+      q: "CO₂ cosa fa?",
+      opzioni: [
+        "Trattiene calore",
+        "Raffredda aria",
+        "Distrugge ossigeno"
+      ],
+      giusta: 0
+    },
+    {
+      q: "CFC perché vietati?",
+      opzioni: [
+        "Distruggono ozono",
+        "Aumentano ossigeno",
+        "Raffreddano Terra"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cambiamento climatico?",
+      opzioni: [
+        "Variazione clima globale",
+        "Solo temperatura",
+        "Solo stagioni"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Riscaldamento globale?",
+      opzioni: [
+        "Aumento temperatura media",
+        "Riduzione CO₂",
+        "Pioggia acida"
+      ],
+      giusta: 0
+    }
+  ]
+
 };
-
-
 </script>
 
-<br><br>
-<button onclick="location.href='index.html'">⬅ Torna alla home</button>
+<script src="quiz.js"></script>
 
 </body>
 </html>
