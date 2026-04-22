@@ -8,26 +8,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body style="font-family: Arial; text-align:center; padding:15px;">
 
-<!-- MENU -->
-<button class="menu-btn" onclick="apriMenu()">☰</button>
-
-<div id="menu" class="menu">
-  <a href="#" onclick="chiudiMenu()" class="close">×</a>
-
-  <a href="index.html">Home</a>
-  <a href="storia.html">Storia</a>
-  <a href="geografia.html">Geografia</a>
-  <a href="scienze.html">Scienze</a>
-  <a href="chimica.html">Chimica</a>
-  <a href="educazione-civica.html">Educazione Civica</a>
-</div>
-
-<div id="overlay" onclick="chiudiMenu()" class="overlay"></div>
+<!-- SOLO HOME -->
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
 
 <!-- TITOLO -->
-<h1>🌌 Quiz di Scienze</h1>
+<h1>🌌 Quiz di Astronomia</h1>
 
 <select id="difficolta">
   <option value="">Scegli difficoltà</option>
@@ -44,7 +43,6 @@
 <!-- QUIZ DATA -->
 <script>
 const quiz = {
-
   facile: [
     {
       q: "Qual è la stella al centro del Sistema Solare?",
@@ -123,24 +121,19 @@ const quiz = {
     },
     {
       q: "Perché i pianeti orbitano?",
-      opzioni: [
-        "Gravità del Sole",
-        "Vento solare",
-        "Luce solare"
-      ],
+      opzioni: ["Gravità del Sole", "Vento solare", "Luce solare"],
       giusta: 0
     },
     {
       q: "Cos’è un anno luce?",
       opzioni: [
         "Distanza percorsa dalla luce in un anno",
-        "Tempo che la luce impiega a spegnersi",
+        "Tempo della luce",
         "Velocità della luce"
       ],
       giusta: 0
     }
   ]
-
 };
 </script>
 
