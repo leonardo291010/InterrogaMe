@@ -1,78 +1,33 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <script src="quiz.js"></script>
   <meta charset="UTF-8">
-  <title>Quiz Chimica - InterrogaMe</title>
+  <title>Quiz Chimica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<!-- Bottone menu -->
-<button onclick="apriMenu()" style="
-  position:fixed;
-  top:10px;
-  left:10px;
-  z-index:3;
-  font-size:22px;
-  padding:8px 12px;
-  border-radius:8px;
-  background:#333;
-  color:white;
-">
-☰
-</button>
 
-<!-- Menu laterale -->
-<div id="menu" style="
-  height:100%;
-  width:0;
-  position:fixed;
-  top:0;
-  left:0;
-  background:#333;
-  overflow-x:hidden;
-  transition:0.3s;
-  padding-top:60px;
-  z-index:2;
-">
+<!-- MENU -->
+<button class="menu-btn" onclick="apriMenu()">☰</button>
 
-<a href="javascript:void(0)" onclick="chiudiMenu()" style="
-  position:absolute;
-  top:10px;
-  right:20px;
-  font-size:30px;
-  color:white;
-  text-decoration:none;
-">×</a>
+<div id="menu" class="menu">
+  <a href="#" onclick="chiudiMenu()" class="close">×</a>
 
-<a href="storia.html" style="color:white; display:block; padding:12px; text-decoration:none;">Storia</a>
-<a href="geografia-Italia.html" style="color:white; display:block; padding:12px; text-decoration:none;">Geografia</a>
-<a href="scienze-quiz-a-livelli.html" style="color:white; display:block; padding:12px; text-decoration:none;">Scienze</a>
-<a href="quiz-chimica.html" style="color:white; display:block; padding:12px; text-decoration:none;">Chimica</a>
-<a href="educazione-civica-ambiente.html" style="color:white; display:block; padding:12px;">
-Educazione Civica 
-</a>
+  <a href="index.html">Home</a>
+  <a href="storia.html">Storia</a>
+  <a href="geografia.html">Geografia</a>
+  <a href="scienze.html">Scienze</a>
+  <a href="chimica.html">Chimica</a>
+  <a href="educazione-civica.html">Educazione Civica</a>
 </div>
 
-<!-- Overlay (clic fuori per chiudere) -->
-<div id="overlay" onclick="chiudiMenu()" style="
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
-  display:none;
-  z-index:1;
-"></div>
-  
-<h1>SEI PRONTO??? ⚛️</h1>
+<div id="overlay" onclick="chiudiMenu()" class="overlay"></div>
 
-<p>Quiz di Chimica</p>
+<!-- CONTENUTO -->
+<h1>SEI PRONTO? ⚛️</h1>
 
 <select id="difficolta">
   <option value="">Scegli difficoltà</option>
@@ -85,6 +40,7 @@ Educazione Civica
 
 <div id="quiz"></div>
 <h2 id="risultato"></h2>
+
 <script>
 const quiz = {
   facile: [
@@ -232,56 +188,8 @@ const quiz = {
   ]
 };
 </script>
-<script>
-function mostraDomande() {
-  let scelta = document.getElementById("difficolta").value;
-  let box = document.getElementById("domande");
-
-  if (scelta === "facile") {
-    box.innerHTML = `
-      <p>Che cosa studia la chimica?</p>
-      <p>Qual è la particella più piccola che mantiene le proprietà di un elemento?</p>
-      <p>Come si chiama la sostanza fatta da un solo tipo di atomi?</p>
-      <p>L’acqua è un elemento o un composto?</p>
-      <p>Qual è il simbolo chimico dell’ossigeno?</p>
-    `;
-  }
-  if (scelta === "normale") {
-    box.innerHTML = `
-      <p>Da quali particelle è formato un atomo?</p>
-      <p>Dove si trovano protoni e neutroni nell’atomo?</p>
-      <p>Che cos’è una molecola?</p>
-      <p>Qual è la differenza tra elemento e composto?</p>
-      <p>Che cos’è una reazione chimica?</p>
-    `;
-  }
-
-  if (scelta === "difficile") {
-    box.innerHTML = `
-      <p>Che cos’è il numero atomico e cosa indica?</p>
-      <p>Che differenza c’è tra massa atomica e numero di massa?</p>
-      <p>Che cos’è un legame chimico?</p>
-      <p>Qual è la differenza tra trasformazione fisica e chimica?</p>
-      <p>Che cosa afferma la legge di conservazione della massa?</p>
-    `;
-  }
-}
-</script>
-
-<br>
-<br>
   
-<script>
-function apriMenu() {
-  document.getElementById("menu").style.width = "250px";
-  document.getElementById("overlay").style.display = "block";
-}
+<script src="quiz.js"></script>
 
-function chiudiMenu() {
-  document.getElementById("menu").style.width = "0";
-  document.getElementById("overlay").style.display = "none";
-}
-</script>
-  
 </body>
 </html>
