@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<link rel="manifest" href="manifest.json">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="description" content="Generatore di interrogazioni automatico per scuola. Allenati con delle domande per qualsiasi materiaprima dell'interrogazione per verificare di aver studiato nella materia corretta">
+<title>InterrogaMe-generatore di interrogazioni online</title>
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Bottone menu -->
+<button onclick="apriMenu()" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:3;
+  font-size:22px;
+  padding:8px 12px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+">
+☰
+</button>
+
+<!-- Menu laterale -->
+<div id="menu" style="
+  height:100%;
+  width:0;
+  position:fixed;
+  top:0;
+  left:0;
+  background:#333;
+  overflow-x:hidden;
+  transition:0.3s;
+  padding-top:60px;
+  z-index:2;
+">
+
+<a href="javascript:void(0)" onclick="chiudiMenu()" style="
+  position:absolute;
+  top:10px;
+  right:20px;
+  font-size:30px;
+  color:white;
+  text-decoration:none;
+">×</a>
+
+<a href="storia.html" style="color:white; display:block; padding:12px; text-decoration:none;">Storia</a>
+<a href="geografia-Italia.html" style="color:white; display:block; padding:12px; text-decoration:none;">Geografia</a>
+<a href="scienze-quiz-a-livelli.html" style="color:white; display:block; padding:12px; text-decoration:none;">Scienze</a>
+<a href="quiz-chimica.html" style="color:white; display:block; padding:12px; text-decoration:none;">Chimica</a>
+<a href="educazione-civica-ambiente.html" style="color:white; display:block; padding:12px; text-decoration:none;">Educazione Civica </a>
+<a href="inglese.html"  style="color:white; display:block; padding:12px; text-decoration:none;">Inglese</a> 
+<a href="come-studiare.html"  style="color:white; display:block; padding:12px; text-decoration:none;">STUDIA MEGLIO</a> 
+</div>
+
+<!-- Overlay (clic fuori per chiudere) -->
+<div id="overlay" onclick="chiudiMenu()" style="
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  display:none;
+  z-index:1;">
+</div>
+  
+<h1>InterrogaMe</h1>
+
+<label>Tipo argomento</label>
+<select id="tipo" onchange="controllaTipo()">
+    <option value="">Seleziona tipo</option>
+    <option value="persona">Persona</option>
+    <option value="paese">Paese</option>
+    <option value="oggetto">Oggetto</option>
+    <option value="periodo">Periodo</option>
+    <option value="evento">Evento</option>
+</select>
+
+<div id="materiaBox">
+    <label>Materia</label>
+    <select id="materia">
+        <option value="">Seleziona materia</option>
+        <option value="storia">Storia</option>
+        <option value="geografia">Geografia</option>
+        <option value="scienze">Scienze</option>
+    </select>
+</div>
+
+<input type="text" id="argomento" placeholder="Scrivi argomento (es: Napoleone, Italia, Medioevo)">
+
+<button onclick="genera()">Genera domande</button>
+
+<div id="output"></div>
+
+<script>
+function controllaTipo() {
+    const tipo = document.getElementById("tipo").value;
+    const box = document.getElementById("materiaBox");
+
+    box.style.display = (tipo === "paese") ? "block" : "none";
+}
+
+function genera() {
+    const tipo = document.getElementById("tipo").value;
+    const arg = document.getElementById("argomento").value.trim();
+    const materia = document.getElementById("materia").value;
+
+    let domande = [];
+    
+    if (!tipo) {
+        mostra("Seleziona un tipo!");
+        return;
+    }
+
+    if (!arg) {
+        mostra("Scrivi un argomento valido!");
+        return;
+    }
+
+    if (tipo === "paese" && !materia) {
+        mostra("Seleziona la materia!");
+        return;
+    }
+    if (tipo === "persona") {
+        domande = [
+            `Chi è ${arg}?`,
+            `Quando è nato e quando è morto ${arg}?`,
+            `Cosa ha fatto di importante ${arg}?`,
+            `Perché ${arg} è considerato importante?`
+        ];
+    }
+    else if (tipo === "paese") {
+
+        if (materia === "storia") {
+            domande = [
+                `Quali eventi storici importanti riguardano ${arg}?`,
+                `Come si è sviluppato storicamente ${arg}?`,
+                `Quali guerre o rivoluzioni hanno coinvolto ${arg}?`
+            ];
+        }
+
+        else if (materia === "geografia") {
+            domande = [
+                `Dove si trova ${arg} e quali sono i suoi confini?`,
+                `Quali sono le principali caratteristiche geografiche di ${arg}?`,
+                `Quali sono le attività economiche principali di ${arg}?`
+            ];
+        }
+
+        else if (materia === "scienze") {
+            domande = [
+                `Quali scoperte scientifiche importanti sono state fatte in ${arg}?`,
+                `Quali risorse naturali ha ${arg}?`,
+                `Che tipo di ambiente e biodiversità ha ${arg}?`
+            ];
+        }
+    }
+    else if (tipo === "oggetto") {
+        domande = [
+            `Cos'è ${arg} e a cosa serve?`,
+            `Come funziona ${arg}?`,
+            `Come è stato inventato o scoperto ${arg}?`,
+            `Quali problemi risolve ${arg}?`
+        ];
+    }
+    else if (tipo === "periodo") {
+        domande = [
+            `Cos'è il periodo del ${arg}?`,
+            `Quali sono le caratteristiche principali del ${arg}?`,
+            `Quali eventi importanti avvengono nel ${arg}?`,
+            `Come si viveva nel ${arg}?`,
+            `Perché il ${arg} è importante nella storia?`
+        ];
+    }
+    else if (tipo === "evento") {
+        domande = [
+            `Quando è avvenuto ${arg}?`,
+            `Quali sono le cause di ${arg}?`,
+            `Chi sono i protagonisti di ${arg}?`,
+            `Quali sono le conseguenze di ${arg}?`,
+            `Perché ${arg} è importante nella storia?`
+        ];
+    }
+
+    document.getElementById("output").innerHTML =
+        domande.map(d => `<p>• ${d}</p>`).join("");
+}
+
+// funzione per mostrare errori
+function mostra(testo) {
+    document.getElementById("output").innerHTML = `<p>${testo}</p>`;
+}
+</script>
+<br>
+<br>
+<hr>
+  <h3>📱Puoi installare quest'app sul telefono, vai alla schermata del browser in alto a destra e cerca:<hr>
+  AGGIUNGI A HOME, poi premi installa</h3>
+<script> 
+function apriMenu() {
+  document.getElementById("menu").style.width = "250px";
+  document.getElementById("overlay").style.display = "block";
+}
+
+function chiudiMenu() {
+  document.getElementById("menu").style.width = "0";
+  document.getElementById("overlay").style.display = "none";
+}
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
+</body>
+</html>
