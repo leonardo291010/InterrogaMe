@@ -10,7 +10,7 @@
 
 <body style="font-family: Arial; text-align:center; padding:15px;">
 
-<button onclick="location.href='index.html'" style="
+<button id="homeBtn" style="
   position:fixed;
   top:10px;
   left:10px;
@@ -24,7 +24,7 @@
 ⬅ Home
 </button>
 
-<h1>📖Quiz Inglese</h1>
+<h1>📖 Quiz Inglese</h1>
 
 <select id="difficolta">
   <option value="">Scegli difficoltà</option>
@@ -33,166 +33,48 @@
   <option value="difficile">Difficile</option>
 </select>
 
-<button onclick="mostraDomande()">Inizia</button>
+<button id="startBtn">Inizia</button>
 
 <div id="quiz"></div>
 <h2 id="risultato"></h2>
 
 <script>
 const quiz = {
-
- facile: [
-    {
-      q: "Cosa significa i am",
-      opzioni: [
-        "io ero",
-        "io sono",
-        "io sarò"
-      ],
-      giusta: 1
-    },
-    {
-      q: "come si dice libro in inglese?",
-      opzioni: [
-        "page",
-        "library",
-        "book"
-      ],
-      giusta: 2
-    },
-    {
-      q: "she is happy significa?",
-      opzioni: [
-        "lui è felice",
-        "lei è felice",
-        "lui sarà felice"
-      ],
-      giusta: 1
-    },
-    {
-      q: "plurale di child?",
-      opzioni: [
-        "children",
-        "childes",
-        "childs"
-      ],
-      giusta: 0
-    },
-    {
-      q: "dog significa?",
-      opzioni: [
-        "gatto",
-        "cane",
-        "animale"
-      ],
-      giusta: 1
-    }
+  facile: [
+    { q: "Cosa significa i am", opzioni: ["io ero","io sono","io sarò"], giusta: 1 },
+    { q: "come si dice libro in inglese?", opzioni: ["page","library","book"], giusta: 2 },
+    { q: "she is happy significa?", opzioni: ["lui è felice","lei è felice","lui sarà felice"], giusta: 1 },
+    { q: "plurale di child?", opzioni: ["children","childes","childs"], giusta: 0 },
+    { q: "dog significa?", opzioni: ["gatto","cane","animale"], giusta: 1 }
   ],
-
   normale: [
-    {
-      q: "differenza tra can e could?",
-      opzioni: [
-        "can è passato, could presente",
-        "nessuna ",
-        "could è passato, can è presente "
-      ],
-      giusta: 2
-    },
-    {
-      q: "may e might servono per?",
-      opzioni: [
-        "obbligo/dovere",
-        "certezza",
-        "possibilità"
-      ],
-      giusta: 2
-    },
-    {
-      q: "sto studiando inglese:",
-      opzioni: [
-        "i am studying english",
-        "i will study english",
-        "i am study english"
-      ],
-      giusta: 0
-    },
-    {
-      q: "he doesn't like pizza?",
-      opzioni: [
-        "lui ama la pizza",
-        "lui non ama la pizza",
-        "lui mangia pizza"
-      ],
-      giusta: 1
-    },
-    {
-      q: "forma corretta del passato semplice di go?",
-      opzioni: [
-        "goed",
-        "went",
-        "gone"
-      ],
-      giusta: 1
-    }
+    { q: "differenza tra can e could?", opzioni: ["can passato","nessuna","could passato"], giusta: 2 },
+    { q: "may e might servono per?", opzioni: ["dovere","certezza","possibilità"], giusta: 2 },
+    { q: "sto studiando inglese:", opzioni: ["i am studying english","i will study english","i am study english"], giusta: 0 },
+    { q: "he doesn't like pizza?", opzioni: ["ama pizza","non ama pizza","mangia pizza"], giusta: 1 },
+    { q: "passato di go?", opzioni: ["goed","went","gone"], giusta: 1 }
   ],
-
   difficile: [
-    {
-      q: "differenza tra will e going to?",
-      opzioni: [
-        "sempre uguali",
-        "going to è passato",
-        "will=decisione improvvisa, going to=già decisa"
-      ],
-      giusta: 2
-    },
-    {
-      q: "if i had studied, i would have passed" è?",
-      opzioni: [
-        "third conditional",
-        "second conditional ",
-        "first conditional "
-      ],
-      giusta: 0
-    },
-    {
-      q: "avrei voluto venire?",
-      opzioni: [
-        "i would have liked to come ",
-        "i wanted to come ",
-        "i would like to come "
-      ],
-      giusta: 0
-    },
-    {
-      q: "quale frase indica una possibilità nel futuro?",
-      opzioni: [
-        "i must go to the party ",
-        "i might go to the party ",
-        "i went to the party "
-      ],
-      giusta: 1
-    },
-    {
-      q: "differenza tra say e tell?",
-      opzioni: [
-        "say è solo nel passato ",
-        "identici ",
-        "tell richiede un destinatario, say no"
-      ],
-      giusta: 2
-    }
+    { q: "will vs going to?", opzioni: ["uguali","going passato","will improvvisa"], giusta: 2 },
+    { q: "third conditional?", opzioni: ["if i had studied...","second","first"], giusta: 0 },
+    { q: "avrei voluto venire?", opzioni: ["i would have liked to come","i wanted","i would like"], giusta: 0 },
+    { q: "possibilità futuro?", opzioni: ["must","might","went"], giusta: 1 },
+    { q: "say vs tell?", opzioni: ["say passato","uguali","tell ha destinatario"], giusta: 2 }
   ]
-
 };
 </script>
 
-<h2>Obbiettivo quiz</h2>
+<h2>Obiettivo quiz</h2>
 <p>l'obiettivo di questo quiz è testare la conoscenza dell'inglese con domande che riguardano grammatica e traduzioni</p>
 <p>le domande sono divise in difficoltà per garantire uno studio per qualsiasi età e classe.</p>
-  
-<script src="quiz.js"></script>
+
+<script src="quiz.js" defer></script>
+
+<script>
+document.getElementById("homeBtn").onclick = () => {
+  location.href = "index.html";
+};
+</script>
 
 </body>
 </html>
