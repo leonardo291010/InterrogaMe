@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="it"> 
+<head> 
+  <meta charset="UTF-8">
+  <title>Quiz d'informatica, diviso in tre livelli</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Quiz sull'informatica e sulla conoscenza tecnologica diviso in tre livelli, facile, normale e difficile">
+</head>
 
+<body style="font-family: Arial; text-align:center; padding:15px;">
+
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
+
+<h1>💻 Quiz Informatica</h1>
+
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<button onclick="mostraDomande()">Inizia</button>
+
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
+
+<script>
+const quiz = {
+
+ informatica: {
+
+  facile: [
+    {
+      q: "Cos’è un computer?",
+      opzioni: [
+        "Macchina che elabora dati",
+        "Stampante di immagini",
+        "Solo un telefono"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è un software?",
+      opzioni: [
+        "Parte fisica del PC",
+        "Programmi del computer",
+        "Un cavo di rete"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cos’è l’hardware?",
+      opzioni: [
+        "Programmi installati",
+        "Parte fisica del computer",
+        "Connessione internet"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cos’è un sistema operativo?",
+      opzioni: [
+        "Un gioco",
+        "Programma che gestisce il computer",
+        "Un browser web"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cos’è Internet?",
+      opzioni: [
+        "Un programma di scrittura",
+        "Rete mondiale di computer",
+        "Un singolo sito"
+      ],
+      giusta: 1
+    }
+  ],
+
+  normale: [
+    {
+      q: "Cos’è un algoritmo?",
+      opzioni: [
+        "Tipo di computer",
+        "Sequenza di istruzioni",
+        "Programma grafico"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cos’è un browser?",
+      opzioni: [
+        "Sistema operativo",
+        "Programma per navigare internet",
+        "File di sistema"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cos’è un file?",
+      opzioni: [
+        "Un virus",
+        "Insieme di dati salvati",
+        "Un cavo hardware"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cos’è un virus informatico?",
+      opzioni: [
+        "Sistema operativo",
+        "Programma dannoso",
+        "Hardware del PC"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cos’è la RAM?",
+      opzioni: [
+        "Memoria temporanea",
+        "Stampante interna",
+        "Disco rigido"
+      ],
+      giusta: 0
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Differenza tra RAM e memoria di massa?",
+      opzioni: [
+        "RAM è più lenta del disco",
+        "RAM temporanea, massa permanente",
+        "Sono uguali"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cos’è la CPU?",
+      opzioni: [
+        "Tipo di memoria",
+        "Programma antivirus",
+        "Cervello del computer"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Cos’è un linguaggio di programmazione?",
+      opzioni: [
+        "Browser internet",
+        "Linguaggio per scrivere istruzioni",
+        "Tipo di hardware"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cos’è un database?",
+      opzioni: [
+        "Sistema operativo",
+        "Antivirus",
+        "Insieme organizzato di dati"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Cos’è il codice binario?",
+      opzioni: [
+        "Lingua umana",
+        "File audio",
+        "Linguaggio a 0 e 1"
+      ],
+      giusta: 2
+    }
+  ]
+
+};
+</script>
+
+<h2>Obbiettivo quiz</h2>
+<p>l'obiettivo di questo quiz è testare la conoscenza teconologica e informayica</p>
+<p>le domande sono divise in difficoltà per garantire uno studio per qualsiasi età e classe (facile, normale e difficile).</p>
+  
+<script src="quiz.js"></script>
+
+</body>
+</html>
