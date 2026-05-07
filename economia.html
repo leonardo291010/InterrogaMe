@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head> 
+  <meta charset="UTF-8">
+  <title>Quiz Economia, facile ,normale e difficile - InterrogaMe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Quiz sull'economia, diviso in livelli per apprendere delle conoscenze base sul mondo del denaro - InterrogaMe">
+</head>
 
+<body style="font-family: Arial; text-align:center; padding:15px;">
+
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
+
+<h1>⚛️ Quiz di Chimica</h1>
+
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<button onclick="mostraDomande()">Inizia</button>
+
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
+
+<script>
+const quiz = {
+
+  facile: [
+    {
+      q: "Cos’è l’economia?",
+      opzioni: [
+        "Studio del corpo umano",
+        "Studio di soldi e risorse",
+        "Studio dello spazio"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cos’è il denaro?",
+      opzioni: [
+        "Mezzo di scambio",
+        "Tipo di energia",
+        "Sistema operativo"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cosa significa comprare?",
+      opzioni: [
+        "Vendere un prodotto",
+        "Ottenere un bene pagando",
+        "Regalare soldi"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cos’è un prezzo?",
+      opzioni: [
+        "Valore di un prodotto",
+        "Tipo di banca",
+        "Guadagno mensile"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è il risparmio?",
+      opzioni: [
+        "Spendere tutto subito",
+        "Mettere da parte soldi",
+        "Prendere un prestito"
+      ],
+      giusta: 1
+    }
+  ],
+
+  normale: [
+    {
+      q: "Cos’è una banca?",
+      opzioni: [
+        "Luogo che gestisce denaro",
+        "Negozio di elettronica",
+        "Fabbrica industriale"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è un prestito?",
+      opzioni: [
+        "Soldi regalati",
+        "Soldi dati da restituire",
+        "Aumento di stipendio"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cosa significa investire?",
+      opzioni: [
+        "Buttare soldi",
+        "Conservare soldi sotto il letto",
+        "Usare soldi per guadagnarne altri"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Cos’è un salario?",
+      opzioni: [
+        "Pagamento per un lavoro",
+        "Tipo di tassa",
+        "Costo di un prodotto"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è l’inflazione?",
+      opzioni: [
+        "Diminuzione prezzi",
+        "Aumento generale dei prezzi",
+        "Riduzione stipendi"
+      ],
+      giusta: 1
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Domanda e offerta influenzano?",
+      opzioni: [
+        "Velocità internet",
+        "Prezzo dei prodotti",
+        "Temperatura globale"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Cos’è il PIL?",
+      opzioni: [
+        "Valore produzione di un paese",
+        "Sistema bancario europeo",
+        "Tipo di moneta digitale"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è un’azione?",
+      opzioni: [
+        "Quota di proprietà di un’azienda",
+        "Prestito statale",
+        "Tipo di tassa"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Perché si pagano le tasse?",
+      opzioni: [
+        "Per finanziare servizi pubblici",
+        "Per aumentare inflazione",
+        "Per creare aziende private"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è il debito pubblico?",
+      opzioni: [
+        "Soldi che lo Stato deve",
+        "Guadagno delle aziende",
+        "Valore totale delle banche"
+      ],
+      giusta: 0
+    }
+  ]
+
+}
+
+};
+</script>
+
+<h2>Obbiettivo quiz</h2>
+<p>l'obiettivo di questo quiz è far apprendere una base, un'introduzione, all'economia ed alla gestione del proprio denaro</p>
+<p>le domande sono divise in difficoltà per garantire uno studio per qualsiasi età e classe.</p>
+  
+<script src="quiz.js"></script>
+
+</body>
+</html>
