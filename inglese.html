@@ -33,7 +33,7 @@
   <option value="difficile">Difficile</option>
 </select>
 
-<button id="startBtn">Inizia</button>
+<button onclick="mostraDomande()">Inizia</button>
 
 <div id="quiz"></div>
 <h2 id="risultato"></h2>
@@ -75,7 +75,7 @@ const quiz = {
 <p>l'obiettivo di questo quiz è testare la conoscenza dell'inglese con domande che riguardano grammatica e traduzioni</p>
 <p>le domande sono divise in difficoltà per garantire uno studio per qualsiasi età e classe.</p>
 
-<script src="quiz.js" defer></script>
+<script src="quiz.js"></script>
 
 <script>
 document.getElementById("homeBtn").onclick = () => {
