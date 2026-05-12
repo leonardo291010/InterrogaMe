@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta name="description" content="Quiz sulla Preistoria, quiz a punti con diverse difficoltà partendo da facile fino a difficile - InterrogaMe">
+  <meta charset="UTF-8">
+  <title>Quiz Storia sulla Preistoria a livelli - InterrogaMe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body style="font-family: Arial; text-align:center; padding:15px;">
+
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
+
+<h1>📜 Quiz di Storia sulla Preistoria</h1>
+
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<button onclick="mostraDomande()">Inizia</button>
+
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
+
+<script>
+const quiz = 
+  facile: [
+    {
+      q: "Chi è il primo antenato dell’uomo?",
+      opzioni: [
+        "Australopiteco",
+        "Homo sapiens",
+        "Neanderthal"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Chi imparò a usare il fuoco?",
+      opzioni: [
+        "Homo habilis",
+        "Homo erectus",
+        "Australopiteco"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Quale specie è la nostra?",
+      opzioni: [
+        "Homo erectus",
+        "Neanderthal",
+        "Homo sapiens"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Con cosa cacciavano i primitivi?",
+      opzioni: [
+        "Computer",
+        "Lance e pietre",
+        "Macchine"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Dove vivevano spesso gli uomini primitivi?",
+      opzioni: [
+        "Grotte",
+        "Grattacieli",
+        "Castelli"
+      ],
+      giusta: 0
+    }
+  ],
+
+  normale: [
+    {
+      q: "Cos’è la preistoria?",
+      opzioni: [
+        "Periodo prima della scrittura",
+        "Periodo romano",
+        "Età moderna"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Chi usava utensili di pietra?",
+      opzioni: [
+        "Homo habilis",
+        "Cavalieri medievali",
+        "Egizi"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cosa significa nomade?",
+      opzioni: [
+        "Persona che si sposta",
+        "Persona che vive in castelli",
+        "Persona che governa"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale periodo viene dopo il Paleolitico?",
+      opzioni: [
+        "Età del bronzo",
+        "Neolitico",
+        "Età moderna"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Nel Neolitico l’uomo iniziò?",
+      opzioni: [
+        "Agricoltura e allevamento",
+        "Uso del computer",
+        "Viaggi spaziali"
+      ],
+      giusta: 0
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Differenza tra Paleolitico e Neolitico?",
+      opzioni: [
+        "Nomadi vs sedentari",
+        "Uso del ferro vs plastica",
+        "Guerre vs pace"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Chi era il Neanderthal?",
+      opzioni: [
+        "Specie umana estinta",
+        "Primo re romano",
+        "Animale preistorico"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Perché il fuoco fu importante?",
+      opzioni: [
+        "Permise calore e cibo cotto",
+        "Serviva solo per luce",
+        "Creava elettricità"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è la sedentarizzazione?",
+      opzioni: [
+        "Vivere in un luogo fisso",
+        "Migrare continuamente",
+        "Combattere guerre"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Con cosa si conclude la preistoria?",
+      opzioni: [
+        "Scoperta del fuoco",
+        "Nascita Homo sapiens",
+        "Invenzione della scrittura"
+      ],
+      giusta: 2
+    }
+  ]
+</script>
+
+<h2>Obiettivo quiz</h2>
+<p>l'obiettivo di questo quiz è far imparare la storia che, anche se ci sembra distante, è più vicina a noi di qunato pensiamo.</p>
+<p>le domande sono divise in difficoltà per garantire uno studio per qualsiasi età e classe.</p>
+<p>questa specifica pagina è incentrata sulla preoistoria.</p>
+  
+<script src="quiz.js"></script>
+
+</body>
+</html>
