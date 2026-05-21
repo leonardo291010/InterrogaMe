@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz sul cuore,facile ,normale e difficile - InterrogaMe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quiz sul cuore e sistema circolatorio, che comprende malattie ,vasi sanguigni e altro, quiz a punti con diverse difficoltà partendo da facile fino a difficile - InterrogaMe">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="font-family: Arial; text-align:center; padding:15px;">
+
+<!-- SOLO HOME -->
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
+
+<!-- TITOLO -->
+<h1>🫀 Quiz sul sistema circolatorio</h1>
+
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<button onclick="mostraDomande()">Inizia</button>
+
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
+
+<!-- QUIZ DATA -->
+<script>
+const quiz = {
+  facile: [
+    {
+      q: "Qual è la funzione principale del cuore?",
+      opzioni: [
+        "Pompare il sangue",
+        "Produrre ossigeno",
+        "Digerire il cibo"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Che cosa sono le vene?",
+      opzioni: [
+        "Vasi che portano il sangue al cuore",
+        "Organi che filtrano il sangue",
+        "Nervi del corpo"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Che cosa sono le arterie?",
+      opzioni: [
+        "Vasi che portano il sangue dal cuore",
+        "Muscoli del cuore",
+        "Capelli del sangue"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Che cosa sono i capillari?",
+      opzioni: [
+        "Vasi sanguigni molto sottili",
+        "Valvole del cuore",
+        "Cellule del sangue"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Che cos’è il sangue?",
+      opzioni: [
+        "Liquido che trasporta sostanze nel corpo",
+        "Tipo di osso",
+        "Aria nei polmoni"
+      ],
+      giusta: 0
+    }
+  ],
+
+  normale: [
+    {
+      q: "Qual è la differenza tra vene e arterie?",
+      opzioni: [
+        "Le vene portano il sangue al cuore, le arterie lo portano via",
+        "Sono uguali",
+        "Le arterie portano il sangue al cuore"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Dove avvengono gli scambi di ossigeno e nutrienti?",
+      opzioni: [
+        "Nei capillari",
+        "Nel cuore",
+        "Nelle vene principali"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale sangue è ricco di ossigeno?",
+      opzioni: [
+        "Sangue arterioso",
+        "Sangue venoso",
+        "Sangue linfatico"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cosa trasporta il sangue oltre all’ossigeno?",
+      opzioni: [
+        "Nutrienti e sostanze di scarto",
+        "Solo ossigeno",
+        "Solo acqua"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale organo lavora insieme al cuore nel sistema circolatorio?",
+      opzioni: [
+        "Polmoni",
+        "Fegato",
+        "Stomaco"
+      ],
+      giusta: 0
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Cos’è la piccola circolazione?",
+      opzioni: [
+        "Circolazione tra cuore e polmoni",
+        "Circolazione solo nel cervello",
+        "Circolazione nelle gambe"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è la grande circolazione?",
+      opzioni: [
+        "Circolazione tra cuore e tutto il corpo",
+        "Circolazione solo nei polmoni",
+        "Circolazione del sangue nel fegato"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è l’aterosclerosi?",
+      opzioni: [
+        "Accumulo di grassi nelle arterie",
+        "Infezione dei polmoni",
+        "Crescita dei muscoli del cuore"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è un infarto?",
+      opzioni: [
+        "Ostruzione del flusso di sangue al cuore",
+        "Aumento della pressione del cervello",
+        "Raffreddamento del sangue"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Cos’è la pressione sanguigna?",
+      opzioni: [
+        "Forza del sangue sulle pareti dei vasi",
+        "Quantità di ossigeno nei polmoni",
+        "Velocità del respiro"
+      ],
+      giusta: 0
+    }
+  ]
+
+};
+</script>
+
+<h2>Obbiettivo quiz</h2>
+<p>l'obiettivo di questo quiz è testare la conoscenza sul sistema circolatorio del sangue,oltre a saper gestire un'interrogazione su questi argomenti, a sapere di più su ciò che ci permette di vivere tutti i giorni.</p>
+<p>le domande sono divise in difficoltà per garantire uno studio per qualsiasi età e classe.</p> 
+  
+<script src="quiz.js"></script>
+
+</body>
+</html>
