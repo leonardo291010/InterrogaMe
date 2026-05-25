@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="it"> 
+<head> 
+  <meta charset="UTF-8">
+  <title>Quiz d'inglese,approfondito sui verbi, diviso in tre livelli - InterrogaMe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Quiz sui verbi in inglese diviso in tre livelli, facile, normale e difficile - InterrogaMe">
+  <link rel="icon" type="image/png" href="icon.png">
+</head>
+
+<body style="font-family: Arial; text-align:center; padding:15px;">
+
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
+
+<h1>📚 Quiz verbi Inglese</h1>
+
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<button onclick="mostraDomande()">Inizia</button>
+
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
+
+<script>
+const quiz = {
+
+  facile: [
+    {
+      q: "Qual è il verbo 'essere' in inglese?",
+      opzioni: [
+        "Have",
+        "Be",
+        "Go"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Qual è il verbo 'avere' in inglese?",
+      opzioni: [
+        "Do",
+        "Have",
+        "Make"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Come si dice 'andare'?",
+      opzioni: [
+        "Go",
+        "Come",
+        "Take"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Qual è il passato di 'go'?",
+      opzioni: [
+        "Goed",
+        "Gone",
+        "Went"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Come si dice 'mangiare'?",
+      opzioni: [
+        "Eat",
+        "Drink",
+        "Sleep"
+      ],
+      giusta: 0
+    }
+  ],
+
+  normale: [
+    {
+      q: "Qual è il past simple di 'eat'?",
+      opzioni: [
+        "Ate",
+        "Eated",
+        "Eaten"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale verbo significa 'bere'?",
+      opzioni: [
+        "Drive",
+        "Drink",
+        "Read"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Qual è il participio passato di 'write'?",
+      opzioni: [
+        "Written",
+        "Wrote",
+        "Write"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale verbo significa 'comprare'?",
+      opzioni: [
+        "Sell",
+        "Buy",
+        "Pay"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Qual è il passato di 'see'?",
+      opzioni: [
+        "Saw",
+        "Seen",
+        "Seed"
+      ],
+      giusta: 0
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Qual è il participio passato di 'take'?",
+      opzioni: [
+        "Took",
+        "Taken",
+        "Taked"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Quale verbo è irregolare?",
+      opzioni: [
+        "Play",
+        "Watch",
+        "Begin"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Qual è il passato di 'teach'?",
+      opzioni: [
+        "Teached",
+        "Taught",
+        "Thought"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Qual è il participio passato di 'break'?",
+      opzioni: [
+        "Broken",
+        "Broke",
+        "Breaked"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale verbo significa 'prestare'?",
+      opzioni: [
+        "Borrow",
+        "Lend",
+        "Lose"
+      ],
+      giusta: 1
+    }
+  ]
+};
+</script>
+
+<h2>Obbiettivo quiz</h2>
+<p>l'obiettivo di questo quiz è testare la conoscenza dei verbi in inglese per l'approfondimento della lingua</p>
+<p>le domande sono divise in difficoltà per garantire uno studio per qualsiasi età e classe (facile, normale e difficile).</p>
+  
+<script src="quiz.js"></script>
+
+</body>
+</html>
