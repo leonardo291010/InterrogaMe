@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it"> 
+<head> 
+  <meta charset="UTF-8">
+  <title>Quiz d'inglese,approfondito sulla grammatica, diviso in tre livelli - InterrogaMe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Quiz sulla grammatica in inglese diviso in tre livelli, facile, normale e difficile - InterrogaMe">
+  <link rel="icon" type="image/png" href="icon.png">
+</head>
+
+<body style="font-family: Arial; text-align:center; padding:15px;">
+
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
+
+<h1>📚 Quiz grammatica Inglese</h1>
+
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<button onclick="mostraDomande()">Inizia</button>
+
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
+
+<script>
+const quiz = {
+
+  facile: [
+    {
+      q: "Quando si usa 'am'?",
+      opzioni: [
+        "Con I",
+        "Con he/she/it",
+        "Con you"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quando si usa 'is'?",
+      opzioni: [
+        "Con I",
+        "Con he/she/it",
+        "Con we"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Quando si usa 'are'?",
+      opzioni: [
+        "Con he/she/it",
+        "Con I",
+        "Con you/we/they"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Come si forma una frase affermativa?",
+      opzioni: [
+        "Soggetto + verbo",
+        "Verbo + soggetto sempre",
+        "Solo verbo"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Come si dice 'Io sono'?",
+      opzioni: [
+        "I is",
+        "I am",
+        "I are"
+      ],
+      giusta: 1
+    }
+  ],
+
+  normale: [
+    {
+      q: "Quando si usa il Present Simple?",
+      opzioni: [
+        "Azioni abituali",
+        "Solo azioni future",
+        "Solo azioni passate"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Qual è la terza persona singolare di 'play'?",
+      opzioni: [
+        "Plays",
+        "Playes",
+        "Playing"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Qual è la forma negativa di 'He is happy'?",
+      opzioni: [
+        "He not is happy",
+        "He is not happy",
+        "He no happy"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Quando si usa 'do/does'?",
+      opzioni: [
+        "Frasi interrogative e negative",
+        "Solo frasi affermative",
+        "Solo passato"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Qual è la forma interrogativa di 'You like pizza'?",
+      opzioni: [
+        "Do you like pizza?",
+        "You do like pizza?",
+        "Like you pizza?"
+      ],
+      giusta: 0
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Quando si usa il Present Continuous?",
+      opzioni: [
+        "Azioni che stanno accadendo ora",
+        "Azioni abituali",
+        "Solo passato"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Forma corretta di 'He ___ playing football'?",
+      opzioni: [
+        "am",
+        "are",
+        "is"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Forma negativa di Present Continuous?",
+      opzioni: [
+        "Subject + am/is/are + not + verbo-ing",
+        "Subject + do + not + verbo",
+        "Subject + not + verbo"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quando si usa 'does'?",
+      opzioni: [
+        "He/she/it",
+        "I/you/we/they",
+        "Solo passato"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Qual è la forma corretta?",
+      opzioni: [
+        "She don’t like tea",
+        "She doesn’t like tea",
+        "She not likes tea"
+      ],
+      giusta: 1
+    }
+  ]
+
+  
+};
+</script>
+
+<h2>Obbiettivo quiz</h2>
+<p>l'obiettivo di questo quiz è testare la conoscenza della grammatica inglese con dei quiz, per l'approfondimento della lingua</p>
+<p>le domande sono divise in difficoltà per garantire uno studio per qualsiasi età e classe (facile, normale e difficile).</p>
+  
+<script src="quiz.js"></script>
+
+</body>
+</html>
