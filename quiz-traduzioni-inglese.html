@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="it"> 
+<head> 
+  <meta charset="UTF-8">
+  <title>Quiz d'inglese,approfondito sui verbi, diviso in tre livelli - InterrogaMe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Quiz sule traduzioni in inglese diviso in tre livelli, facile, normale e difficile - InterrogaMe">
+  <link rel="icon" type="image/png" href="icon.png">
+</head>
+
+<body style="font-family: Arial; text-align:center; padding:15px;">
+
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
+
+<h1>📚 Quiz traduzioni Inglese</h1>
+
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<button onclick="mostraDomande()">Inizia</button>
+
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
+
+<script>
+const quiz = {
+
+  facile: [
+    {
+      q: "Come si traduce 'cane'?",
+      opzioni: [
+        "Dog",
+        "Cat",
+        "Bird"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Come si traduce 'casa'?",
+      opzioni: [
+        "School",
+        "House",
+        "Room"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Come si traduce 'macchina'?",
+      opzioni: [
+        "Bike",
+        "Train",
+        "Car"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Come si traduce 'scuola'?",
+      opzioni: [
+        "School",
+        "Teacher",
+        "Student"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Come si traduce 'gatto'?",
+      opzioni: [
+        "Fish",
+        "Cat",
+        "Mouse"
+      ],
+      giusta: 1
+    }
+  ],
+
+  normale: [
+    {
+      q: "Come si traduce 'mangiare'?",
+      opzioni: [
+        "Drink",
+        "Sleep",
+        "Eat"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Come si traduce 'bere'?",
+      opzioni: [
+        "Drink",
+        "Drive",
+        "Read"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Come si traduce 'felice'?",
+      opzioni: [
+        "Hungry",
+        "Happy",
+        "Angry"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Come si traduce 'veloce'?",
+      opzioni: [
+        "Slow",
+        "Fast",
+        "Heavy"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Come si traduce 'amico'?",
+      opzioni: [
+        "Enemy",
+        "Brother",
+        "Friend"
+      ],
+      giusta: 2
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Come si traduce 'biblioteca'?",
+      opzioni: [
+        "Library",
+        "Bookshop",
+        "Classroom"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Come si traduce 'rumoroso'?",
+      opzioni: [
+        "Quiet",
+        "Noisy",
+        "Clean"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Come si traduce 'prestare'?",
+      opzioni: [
+        "Borrow",
+        "Lose",
+        "Lend"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Come si traduce 'migliorare'?",
+      opzioni: [
+        "Improve",
+        "Forget",
+        "Destroy"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Come si traduce 'scegliere'?",
+      opzioni: [
+        "Choose",
+        "Change",
+        "Catch"
+      ],
+      giusta: 0
+    }
+  ]
+
+};
+</script>
+
+<h2>Obbiettivo quiz</h2>
+<p>l'obiettivo di questo quiz è testare la conoscenza della lingua inglese con delle traduzioni, per l'approfondimento della lingua</p>
+<p>le domande sono divise in difficoltà per garantire uno studio per qualsiasi età e classe (facile, normale e difficile).</p>
+  
+<script src="quiz.js"></script>
+
+</body>
+</html>
