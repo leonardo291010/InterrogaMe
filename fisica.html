@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="it"> 
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Educazione Civica, facile, normale e difficile - InterrogaMe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Quiz sull'inquinameto e sulla buona educazione, impara ad essere un buon cittadino con quiz a punti con diverse difficoltà partendo da facile fino a difficile - InterrogaMe">
+  <link rel="icon" type="image/png" href="icon.png">
+</head>
 
+<body style="font-family: Arial; text-align:center; padding:15px;">
+
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
+
+<h1>🌍 Quiz Educazione Civica</h1>
+
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<button onclick="mostraDomande()">Inizia</button>
+
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
+
+<script>
+const quiz = {
+
+  facile: [
+    {
+      q: "Che cos’è la forza?",
+      opzioni: [
+        "Una spinta o una trazione",
+        "Una forma di energia",
+        "Una misura della temperatura"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Qual è l’unità di misura della forza?",
+      opzioni: [
+        "Joule",
+        "Newton",
+        "Watt"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Che cos’è la velocità?",
+      opzioni: [
+        "La massa di un corpo",
+        "Lo spazio percorso in un certo tempo",
+        "La forza di gravità"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Quale forza ci tiene attaccati alla Terra?",
+      opzioni: [
+        "Attrito",
+        "Magnetismo",
+        "Gravità"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Qual è l’unità di misura del tempo?",
+      opzioni: [
+        "Secondo",
+        "Metro",
+        "Chilogrammo"
+      ],
+      giusta: 0
+    }
+  ],
+
+  normale: [
+    {
+      q: "Che cos’è l’energia?",
+      opzioni: [
+        "La capacità di compiere un lavoro",
+        "La velocità di un corpo",
+        "La massa di un oggetto"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Qual è l’unità di misura dell’energia?",
+      opzioni: [
+        "Newton",
+        "Joule",
+        "Pascal"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Che cos’è l’attrito?",
+      opzioni: [
+        "Una forza che ostacola il movimento",
+        "Una forma di energia",
+        "Una misura della velocità"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quando un corpo è in equilibrio?",
+      opzioni: [
+        "Quando si muove molto velocemente",
+        "Quando le forze si compensano",
+        "Quando è fermo da molto tempo"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Che cos’è la massa?",
+      opzioni: [
+        "La quantità di materia di un corpo",
+        "La forza esercitata da un corpo",
+        "La velocità di un oggetto"
+      ],
+      giusta: 0
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Quale formula esprime la velocità?",
+      opzioni: [
+        "v = s / t",
+        "v = m × a",
+        "v = F / m"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Che cos’è l’accelerazione?",
+      opzioni: [
+        "La variazione della velocità nel tempo",
+        "Lo spazio percorso",
+        "La forza di gravità"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale formula rappresenta la seconda legge di Newton?",
+      opzioni: [
+        "F = m × a",
+        "P = V × I",
+        "v = s / t"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Che cos’è il lavoro in fisica?",
+      opzioni: [
+        "Forza applicata per uno spostamento",
+        "Qualsiasi attività svolta",
+        "L’energia contenuta in un corpo"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale forma di energia possiede un corpo in movimento?",
+      opzioni: [
+        "Energia potenziale",
+        "Energia termica",
+        "Energia cinetica"
+      ],
+      giusta: 2
+    }
+  ]
+
+}
+  
+</script>
+
+<h2>Obbiettivo quiz</h2>
+<p>l'obiettivo di questo quiz è migliorare la conoscenza del nostro pianeta ed imparare a rispettarlo oltre che prepararti per una possibile interrogazione.</p>
+<p>le domande sono divise in difficoltà per garantire uno studio per qualsiasi età e classe.</p>
+  
+<script src="quiz.js"></script>
+
+</body>
+</html>
