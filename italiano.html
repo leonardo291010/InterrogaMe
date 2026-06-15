@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it"> 
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz di italiano, diviso in tre livelli - InterrogaMe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Quiz sull'informatica e sulla conoscenza della lingua italiana diviso in tre livelli, facile, normale e difficile - InterrogaMe">
+  <link rel="icon" type="image/png" href="icon.png">
+</head>
+
+<body style="font-family: Arial; text-align:center; padding:15px;">
+
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
+
+<h1>📚 Quiz Italiano</h1>
+
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<button onclick="mostraDomande()">Inizia</button>
+
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
+
+<script>
+const quiz = {
+
+  facile: [
+    {
+      q: "Che cos'è un nome?",
+      opzioni: [
+        "Una parola che indica un'azione",
+        "Una parola che indica una persona, un animale o una cosa",
+        "Una parola che sostituisce il verbo"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Quale tra queste è una congiunzione?",
+      opzioni: [
+        "E",
+        "Casa",
+        "Correre"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale di queste parole è un verbo?",
+      opzioni: [
+        "Felice",
+        "Tavolo",
+        "Mangiare"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Quale tra questi è un aggettivo?",
+      opzioni: [
+        "Bello",
+        "Scuola",
+        "Dormire"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Che cos'è il soggetto?",
+      opzioni: [
+        "Chi compie o subisce l'azione",
+        "L'azione della frase",
+        "La conclusione del periodo"
+      ],
+      giusta: 0
+    }
+  ],
+
+  normale: [
+    {
+      q: "Che cos'è il predicato verbale?",
+      opzioni: [
+        "La parte della frase che indica l'azione o lo stato del soggetto",
+        "Un complemento",
+        "Un tipo di aggettivo"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale frase contiene un complemento oggetto?",
+      opzioni: [
+        "Marco corre nel parco",
+        "Giulia legge un libro",
+        "Sara è felice"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Quale di questi è un pronome personale?",
+      opzioni: [
+        "Questo",
+        "Io",
+        "Quale"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Che cos'è un sinonimo?",
+      opzioni: [
+        "Una parola con significato opposto",
+        "Una parola con significato uguale o simile",
+        "Una parola straniera"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Qual è il plurale corretto di 'ciliegia'?",
+      opzioni: [
+        "Ciliegie",
+        "Ciliegia",
+        "Cilieggie"
+      ],
+      giusta: 0
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Quale tra queste è una proposizione subordinata?",
+      opzioni: [
+        "Quando arrivò, tutti applaudirono",
+        "Marco mangia la pizza",
+        "Il sole splende"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Che cos'è un complemento di termine?",
+      opzioni: [
+        "Indica il destinatario dell'azione",
+        "Indica il luogo",
+        "Indica il tempo"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale frase contiene il congiuntivo?",
+      opzioni: [
+        "Spero che tu venga",
+        "Domani andrò al mare",
+        "Luca studia matematica"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Che cos'è un antonimo?",
+      opzioni: [
+        "Una parola con significato simile",
+        "Una parola con significato opposto",
+        "Una parola composta"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Quale frase contiene una metafora?",
+      opzioni: [
+        "Quel ragazzo è un fulmine",
+        "Il ragazzo corre veloce",
+        "Il ragazzo ha una bici"
+      ],
+      giusta: 0
+    }
+  ]
+
+};
+
+</script>
+
+<h2>Obiettivo quiz</h2>
+<p>l'obiettivo di questo quiz è testare la lingua italiana, e la sua giusta applicazione</p>
+<p>le domande sono divise in difficoltà per garantire uno studio per qualsiasi età e classe (facile, normale e difficile).</p>
+  
+<script src="quiz.js"></script>
+
+</body>
+</html>
