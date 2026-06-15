@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="it"> 
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz di letteratura italiana, diviso in tre livelli - InterrogaMe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Quiz sull'informatica e sulla conoscenza della letteratura italiana con Dante, Boccaccio, Leopardi ed altri autori italiani diviso in tre livelli, facile, normale e difficile - InterrogaMe">
+  <link rel="icon" type="image/png" href="icon.png">
+</head>
 
+<body style="font-family: Arial; text-align:center; padding:15px;">
+
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
+
+<h1>✍️ Quiz sulla Letteratura Italiana</h1>
+
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<button onclick="mostraDomande()">Inizia</button>
+
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
+
+<script>
+const quiz = {
+
+
+  facile: [
+    {
+      q: "Chi ha scritto la Divina Commedia?",
+      opzioni: [
+        "Giovanni Boccaccio",
+        "Dante Alighieri",
+        "Francesco Petrarca"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Chi ha scritto il Decameron?",
+      opzioni: [
+        "Giovanni Boccaccio",
+        "Ludovico Ariosto",
+        "Ugo Foscolo"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Chi è l'autore del Canzoniere?",
+      opzioni: [
+        "Dante Alighieri",
+        "Francesco Petrarca",
+        "Alessandro Manzoni"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Chi ha scritto I Promessi Sposi?",
+      opzioni: [
+        "Giacomo Leopardi",
+        "Giovanni Verga",
+        "Alessandro Manzoni"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Chi ha scritto L'Infinito?",
+      opzioni: [
+        "Giacomo Leopardi",
+        "Giosuè Carducci",
+        "Ugo Foscolo"
+      ],
+      giusta: 0
+    }
+  ],
+
+  normale: [
+    {
+      q: "A quale movimento appartiene Giovanni Verga?",
+      opzioni: [
+        "Romanticismo",
+        "Verismo",
+        "Futurismo"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Come si chiamano i tre regni della Divina Commedia?",
+      opzioni: [
+        "Inferno, Purgatorio e Paradiso",
+        "Terra, Mare e Cielo",
+        "Inferno, Limbo e Paradiso"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Chi è l'autore de I Malavoglia?",
+      opzioni: [
+        "Luigi Pirandello",
+        "Alessandro Manzoni",
+        "Giovanni Verga"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Quale poeta scrisse A Silvia?",
+      opzioni: [
+        "Gabriele D'Annunzio",
+        "Giacomo Leopardi",
+        "Giuseppe Ungaretti"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Chi ha scritto Il fu Mattia Pascal?",
+      opzioni: [
+        "Luigi Pirandello",
+        "Italo Svevo",
+        "Eugenio Montale"
+      ],
+      giusta: 0
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Quale opera è considerata il manifesto del Verismo?",
+      opzioni: [
+        "I Malavoglia",
+        "Il Piacere",
+        "Uno, nessuno e centomila"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale tema è centrale nel pensiero di Leopardi?",
+      opzioni: [
+        "L'ottimismo storico",
+        "Il pessimismo",
+        "L'eroismo cavalleresco"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Chi ha scritto La coscienza di Zeno?",
+      opzioni: [
+        "Luigi Pirandello",
+        "Eugenio Montale",
+        "Italo Svevo"
+      ],
+      giusta: 2
+    },
+    {
+      q: "A quale corrente appartiene D'Annunzio?",
+      opzioni: [
+        "Decadentismo",
+        "Neorealismo",
+        "Illuminismo"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Chi ha scritto la raccolta Allegria?",
+      opzioni: [
+        "Salvatore Quasimodo",
+        "Giuseppe Ungaretti",
+        "Eugenio Montale"
+      ],
+      giusta: 1
+    }
+  ]
+
+};
+  
+</script>
+
+<h2>Obiettivo quiz</h2>
+<p>l'obiettivo di questo quiz è testare la conoscenza della letteratura italiana</p>
+<p>le domande sono divise in difficoltà per garantire uno studio per qualsiasi età e classe (facile, normale e difficile).</p>
+  
+<script src="quiz.js"></script>
+
+</body>
+</html>
