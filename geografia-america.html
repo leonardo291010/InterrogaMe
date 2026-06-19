@@ -1,1 +1,199 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz di Geografia sull'America, facile normale e difficile - InterrogaMe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Quiz sulla conoscenza del nostro mondo e della sue caratteristiche naturali in modo generale - InterrogaMe ">
+  <link rel="icon" type="image/png" href="icon.png">
+</head>
 
+<body style="font-family: Arial; text-align:center; padding:15px;">
+
+<button onclick="location.href='index.html'" style="
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:10;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#333;
+  color:white;
+  border:none;
+">
+⬅ Home
+</button>
+
+<h1>🌍 Quiz di Geografia</h1>
+
+<select id="difficolta">
+  <option value="">Scegli difficoltà</option>
+  <option value="facile">Facile</option>
+  <option value="normale">Normale</option>
+  <option value="difficile">Difficile</option>
+</select>
+
+<button onclick="mostraDomande()">Inizia</button>
+
+<div id="quiz"></div>
+<h2 id="risultato"></h2>
+
+<script>
+const quiz = {
+
+  facile: [
+    {
+      q: "In quale continente si trova il Brasile?",
+      opzioni: [
+        "Africa",
+        "America del Sud",
+        "Asia"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Qual è il paese più grande dell'America?",
+      opzioni: [
+        "Brasile",
+        "Canada",
+        "Stati Uniti"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Qual è la capitale degli Stati Uniti?",
+      opzioni: [
+        "New York",
+        "Los Angeles",
+        "Washington D.C."
+      ],
+      giusta: 2
+    },
+    {
+      q: "Quale oceano bagna la costa est dell'America?",
+      opzioni: [
+        "Atlantico",
+        "Indiano",
+        "Artico"
+      ],
+      giusta: 0
+    },
+    {
+      q: "In quale parte dell'America si trova l'Argentina?",
+      opzioni: [
+        "America Centrale",
+        "America del Nord",
+        "America del Sud"
+      ],
+      giusta: 2
+    }
+  ],
+
+  normale: [
+    {
+      q: "Qual è il fiume più lungo dell'America?",
+      opzioni: [
+        "Mississippi",
+        "Amazzoni",
+        "Paraná"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Qual è la catena montuosa più lunga dell'America?",
+      opzioni: [
+        "Ande",
+        "Alpi",
+        "Appalachi"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Qual è la lingua più parlata in America Latina?",
+      opzioni: [
+        "Inglese",
+        "Portoghese",
+        "Spagnolo"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Quale stato collega l'America del Nord a quella del Sud?",
+      opzioni: [
+        "Panama",
+        "Messico",
+        "Cuba"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Qual è il deserto più arido dell'America?",
+      opzioni: [
+        "Mojave",
+        "Atacama",
+        "Sonora"
+      ],
+      giusta: 1
+    }
+  ],
+
+  difficile: [
+    {
+      q: "Quale paese sudamericano non ha sbocco sul mare?",
+      opzioni: [
+        "Perù",
+        "Ecuador",
+        "Bolivia"
+      ],
+      giusta: 2
+    },
+    {
+      q: "Qual è il lago più grande dell'America del Sud?",
+      opzioni: [
+        "Titicaca",
+        "Maracaibo",
+        "Poopó"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Quale corrente marina influenza il clima della costa occidentale del Sud America?",
+      opzioni: [
+        "Corrente del Golfo",
+        "Corrente di Humboldt",
+        "Corrente del Labrador"
+      ],
+      giusta: 1
+    },
+    {
+      q: "Qual è la vetta più alta delle Ande?",
+      opzioni: [
+        "Aconcagua",
+        "Chimborazo",
+        "Huascarán"
+      ],
+      giusta: 0
+    },
+    {
+      q: "Quale paese possiede la maggior parte della foresta amazzonica?",
+      opzioni: [
+        "Brasile",
+        "Colombia",
+        "Perù"
+      ],
+      giusta: 0
+    }
+  ]
+
+};
+  
+</script>
+
+<h2>Obiettivo quiz</h2>
+<p>l'obiettivo di questo quiz è prepararti per una possibile interrogazione scolastica e farti apprendere delle nozioni da base ad avanzate sulla natura del nostro pianeta</p>
+  
+<script src="quiz.js"></script>
+
+</body>
+</html>
