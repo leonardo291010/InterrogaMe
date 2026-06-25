@@ -1,29 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://leonardo291010.github.io/InterrogaMe/index.html</loc>
-  </url>
-
-   <url>
-    <loc>https://leonardo291010.github.io/InterrogaMe/geografia-Italia.html</loc>
+    <loc>https://leonardo291010.github.io/</loc>
   </url>
 
   <url>
-    <loc>https://leonardo291010.github.io/InterrogaMe/scienze-quiz-a-livelli.html</loc>
+    <loc>https://leonardo291010.github.io/come-studiare.html</loc>
   </url>
 
   <url>
-    <loc>https://leonardo291010.github.io/InterrogaMe/quiz-chimica.html</loc>
+    <loc>https://leonardo291010.github.io/economia.html</loc>
   </url>
 
   <url>
-    <loc>https://leonardo291010.github.io/InterrogaMe/educazione-civica-ambiente.html</loc>
+    <loc>https://leonardo291010.github.io/educazione-civica-ambiente.html</loc>
   </url>
 
   <url>
-    <loc>https://leonardo291010.github.io/InterrogaMe/come-studiare.html</loc>
+    <loc>https://leonardo291010.github.io/fisica.html</loc>
   </url>
 
-  
+  <url>
+    <loc>https://leonardo291010.github.io/fisica-leggediohm.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/geografia-Italia.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/geografia-america.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/informatica.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/inglese.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/italiano.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/letteratura-italiana.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/quiz-chimica.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/quiz-grammatica-inglese.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/quiz-preistoria.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/quiz-traduzioni-inglese.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/quiz-verbi-inglese.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/scienze-quiz-a-livelli.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/sistemacircolatorio-cuore.html</loc>
+  </url>
+
+  <url>
+    <loc>https://leonardo291010.github.io/storia.html</loc>
+  </url>
+
 </urlset>
