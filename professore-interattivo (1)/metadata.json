@@ -1,0 +1,6 @@
+{
+  "name": "Professore Interattivo",
+  "description": "Un insegnante virtuale basato su Intelligenza Artificiale per ripassare materie scolastiche e universitarie, con feedback in tempo reale, spiegazioni dettagliate degli errori e schede di valutazione finali.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
