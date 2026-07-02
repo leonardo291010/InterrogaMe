@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prof AI - InterrogaMe</title>
+
+<meta name="description" content="Prof AI di InterrogaMe. Preparati alle interrogazioni con un professore intelligente che ti farà domande personalizzate.">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body style="font-family:Arial; text-align:center; padding:20px;">
+
+<button onclick="location.href='index.html'" style="
+position:fixed;
+top:10px;
+left:10px;
+padding:10px 15px;
+border:none;
+border-radius:8px;
+background:#333;
+color:white;
+cursor:pointer;
+">
+⬅ Home
+</button>
+
+<h1>🤖 Prof AI</h1>
+
+<p>
+Il nuovo professore intelligente di InterrogaMe.
+</p>
+
+<br>
+
+<select id="materia">
+<option value="">Scegli la materia</option>
+
+<option>Italiano</option>
+<option>Storia</option>
+<option>Geografia</option>
+<option>Fisica</option>
+<option>Scienze</option>
+<option>Chimica</option>
+<option>Inglese</option>
+<option>Informatica</option>
+<option>Economia</option>
+
+</select>
+
+<br><br>
+
+<select id="modalita">
+
+<option value="">Scegli modalità</option>
+
+<option>Interrogazione</option>
+
+<option>Quiz</option>
+
+<option>Spiegazione</option>
+
+</select>
+
+<br><br>
+
+<input
+id="argomento"
+type="text"
+placeholder="Scrivi l'argomento (es. Napoleone)"
+style="width:280px;padding:10px;border-radius:8px;"
+>
+
+<br><br>
+
+<button onclick="inizia()">
+
+🚀 Inizia
+
+</button>
+
+<br><br>
+
+<div id="chat" style="
+max-width:700px;
+margin:auto;
+padding:20px;
+border-radius:15px;
+background:#f2f2f2;
+min-height:180px;
+">
+
+<h3>🤖 Prof AI</h3>
+
+<p>
+
+Ciao!
+
+Sono quasi pronto.
+
+Tra poco potrai interrogarti con una vera intelligenza artificiale.
+
+</p>
+
+</div>
+
+<script>
+
+function inizia(){
+
+let materia=document.getElementById("materia").value;
+
+let modalita=document.getElementById("modalita").value;
+
+let arg=document.getElementById("argomento").value;
+
+if(materia==""||modalita==""||arg==""){
+
+alert("Compila tutti i campi!");
+
+return;
+
+}
+
+document.getElementById("chat").innerHTML=`
+
+<h3>🤖 Prof AI</h3>
+
+<p>
+
+Ottimo!
+
+Hai scelto:
+
+<b>${materia}</b>
+
+<br><br>
+
+Argomento:
+
+<b>${arg}</b>
+
+<br><br>
+
+Modalità:
+
+<b>${modalita}</b>
+
+<br><br>
+
+🚧 L'AI arriverà presto...
+
+Questa pagina è in preparazione.
+
+</p>
+
+`;
+
+}
+
+</script>
+
+</body>
+
+</html>
