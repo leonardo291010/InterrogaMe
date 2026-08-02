@@ -6,159 +6,201 @@
 
 <title>Prof AI - InterrogaMe</title>
 
-<meta name="description" content="Prof AI di InterrogaMe. Preparati alle interrogazioni con un professore intelligente che ti farà domande personalizzate.">
-
 <link rel="stylesheet" href="style.css">
+
+<style>
+body{
+    font-family:Arial;
+    background:#f5f5f5;
+    margin:0;
+}
+
+header{
+    background:#333;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+#chat{
+    width:min(900px,95%);
+    margin:20px auto;
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    height:500px;
+    overflow-y:auto;
+    box-shadow:0 0 15px rgba(0,0,0,.1);
+}
+
+.msgUser{
+    background:#dff4ff;
+    padding:12px;
+    border-radius:12px;
+    margin:10px 0;
+}
+
+.msgAI{
+    background:#ececec;
+    padding:12px;
+    border-radius:12px;
+    margin:10px 0;
+}
+
+#barra{
+    width:min(900px,95%);
+    margin:auto;
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+#messaggio{
+    flex:1;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+button{
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#333;
+    color:white;
+}
+</style>
+
 </head>
 
-<body style="font-family:Arial; text-align:center; padding:20px;">
+<body>
 
-<button onclick="location.href='index.html'" style="
-position:fixed;
-top:10px;
-left:10px;
-padding:10px 15px;
-border:none;
-border-radius:8px;
-background:#333;
-color:white;
-cursor:pointer;
-">
-⬅ Home
-</button>
+<header>
 
 <h1>🤖 Prof AI</h1>
 
-<p>
-Il nuovo professore intelligente di InterrogaMe.
-</p>
+<p>Il tuo professore personale.</p>
 
-<br>
+</header>
 
-<select id="materia">
-<option value="">Scegli la materia</option>
+<div id="chat">
 
-<option>Italiano</option>
-<option>Storia</option>
-<option>Geografia</option>
-<option>Fisica</option>
-<option>Scienze</option>
-<option>Chimica</option>
-<option>Inglese</option>
-<option>Informatica</option>
-<option>Economia</option>
-
-</select>
-
-<br><br>
-
-<select id="modalita">
-
-<option value="">Scegli modalità</option>
-
-<option>Interrogazione</option>
-
-<option>Quiz</option>
-
-<option>Spiegazione</option>
-
-</select>
-
-<br><br>
-
-<input
-id="argomento"
-type="text"
-placeholder="Scrivi l'argomento (es. Napoleone)"
-style="width:280px;padding:10px;border-radius:8px;"
->
-
-<br><br>
-
-<button onclick="inizia()">
-
-🚀 Inizia
-
-</button>
-
-<br><br>
-
-<div id="chat" style="
-max-width:700px;
-margin:auto;
-padding:20px;
-border-radius:15px;
-background:#f2f2f2;
-min-height:180px;
-">
-
-<h3>🤖 Prof AI</h3>
-
-<p>
+<div class="msgAI">
 
 Ciao!
 
-Sono quasi pronto.
+Sono il Prof AI.
 
-Tra poco potrai interrogarti con una vera intelligenza artificiale.
+Scrivimi qualsiasi domanda oppure chiedimi un'interrogazione.
 
-</p>
+</div>
+
+</div>
+
+<div id="barra">
+
+<input
+id="messaggio"
+placeholder="Scrivi qui..."
+>
+
+<button onclick="invia()">
+
+Invia
+
+</button>
 
 </div>
 
 <script>
 
-function inizia(){
+const chat=document.getElementById("chat");
 
-let materia=document.getElementById("materia").value;
+async function invia(){
 
-let modalita=document.getElementById("modalita").value;
+const input=document.getElementById("messaggio");
 
-let arg=document.getElementById("argomento").value;
+const testo=input.value.trim();
 
-if(materia==""||modalita==""||arg==""){
+if(testo=="") return;
 
-alert("Compila tutti i campi!");
+chat.innerHTML+=`
+<div class="msgUser">
 
-return;
+<b>Tu</b><br><br>
 
-}
+${testo}
 
-document.getElementById("chat").innerHTML=`
-
-<h3>🤖 Prof AI</h3>
-
-<p>
-
-Ottimo!
-
-Hai scelto:
-
-<b>${materia}</b>
-
-<br><br>
-
-Argomento:
-
-<b>${arg}</b>
-
-<br><br>
-
-Modalità:
-
-<b>${modalita}</b>
-
-<br><br>
-
-🚧 L'AI arriverà presto...
-
-Questa pagina è in preparazione.
-
-</p>
-
+</div>
 `;
 
+input.value="";
+
+chat.innerHTML+=`
+<div class="msgAI" id="loading">
+
+🤖 Sta scrivendo...
+
+</div>
+`;
+
+chat.scrollTop=chat.scrollHeight;
+
+try{
+
+const risposta=await fetch("/api/chat",{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify({
+
+messaggio:testo
+
+})
+
+});
+
+const dati=await risposta.json();
+
+document.getElementById("loading").remove();
+
+chat.innerHTML+=`
+<div class="msgAI">
+
+<b>Prof AI</b><br><br>
+
+${dati.risposta}
+
+</div>
+`;
+
+chat.scrollTop=chat.scrollHeight;
+
+}catch(e){
+
+document.getElementById("loading").innerHTML="Errore.";
+
 }
+
+}
+
+document.getElementById("messaggio").addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+
+invia();
+
+}
+
+});
 
 </script>
 
