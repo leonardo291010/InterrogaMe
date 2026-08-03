@@ -4,11 +4,15 @@ export default async function handler(req, res) {
   }
 
   try {
+    console.log("=== NUOVA RICHIESTA ===");
+
+    console.log("API Key presente:", !!process.env.InterrogaMeprofai);
+
     const { messaggio } = req.body;
 
     const risposta = await fetch(
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=" +
-        process.env.InterrogaMeprofai,
+      process.env.InterrogaMeprofai,
       {
         method: "POST",
         headers: {
@@ -41,10 +45,15 @@ ${messaggio}`
       }
     );
 
+    console.log("Status Gemini:", risposta.status);
+
     const dati = await risposta.json();
 
+    console.log("Risposta Gemini:");
+    console.log(JSON.stringify(dati, null, 2));
+
     if (!risposta.ok) {
-      return res.status(500).json({
+      return res.status(risposta.status).json({
         error: dati.error?.message || "Errore Gemini"
       });
     }
@@ -53,13 +62,18 @@ ${messaggio}`
       dati.candidates?.[0]?.content?.parts?.[0]?.text ||
       "Non sono riuscito a rispondere.";
 
-    res.status(200).json({
+    return res.status(200).json({
       risposta: testo
     });
 
   } catch (errore) {
-    res.status(500).json({
+
+    console.error("ERRORE:");
+    console.error(errore);
+
+    return res.status(500).json({
       error: errore.message
     });
+
   }
 }
