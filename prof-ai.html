@@ -27,31 +27,6 @@ header{
     text-align:center;
 }
 
-#chat{
-    width:min(900px,95%);
-    margin:20px auto;
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    height:500px;
-    overflow-y:auto;
-    box-shadow:0 0 15px rgba(0,0,0,.1);
-}
-
-.msgUser{
-    background:#dff4ff;
-    padding:12px;
-    border-radius:12px;
-    margin:10px 0;
-}
-
-.msgAI{
-    background:#ececec;
-    padding:12px;
-    border-radius:12px;
-    margin:10px 0;
-}
-
 #barra{
     width:min(900px,95%);
     margin:auto;
@@ -67,10 +42,19 @@ header{
     border:1px solid #ccc;
     font-size:16px;
 
-    /* Forziamo la scrittura da sinistra a destra */
-    direction:ltr;
-    text-align:left;
+    direction:ltr !important;
+    text-align:left !important;
+    unicode-bidi:plaintext !important;
 }
+
+#chat,
+.msgUser,
+.msgAI{
+    direction:ltr !important;
+    text-align:left !important;
+    unicode-bidi:plaintext !important;
+}
+
 
 button{
     padding:15px;
