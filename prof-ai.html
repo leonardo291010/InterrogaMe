@@ -123,7 +123,9 @@ async function invia(){
 
 const input=document.getElementById("messaggio");
 
-const testo=input.value.trim();
+const testo = input.value.trim();
+
+console.log("TESTO LETTO DAL BROWSER:", testo);
 
 if(testo=="") return;
 
